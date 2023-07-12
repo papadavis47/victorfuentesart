@@ -14,10 +14,8 @@ import Links from '@components/astro/Links.astro';
   </head>
   <body class='h-full text-white bg-yellow-600'>
     <div class='min-h-full flex flex-col'>
-      <!-- Will deal with the below error later - when I understand the TS more -->
-      <!-- @ts-ignore -->
       <Navigation client:load>
-        <Links slot='links' />
+        <Links />
       </Navigation>
       <div class='px-3 py-2'>
         <slot />
