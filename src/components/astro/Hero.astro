@@ -1,0 +1,15 @@
+---
+import victor from '@assets/images/victor1.jpg';
+import { Image } from 'astro:assets';
+import CommonContainer from './CommonContainer.astro';
+const { title } = Astro.props;
+---
+
+<div class='w-full h-40 bg-gradient-tl from-purple-900 to-green-700 relative'>
+  <Image src={victor} alt='Victor' class='w-full h-full object-cover absolute mix-blend-overlay' />
+  <CommonContainer>
+    <div class=''>
+      <h1 class='text-5xl font-bold'>{title}</h1>
+    </div>
+  </CommonContainer>
+</div>
