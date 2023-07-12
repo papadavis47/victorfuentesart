@@ -1,7 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '@layouts/Layout.astro';
+import victor from '@assets/images/victor1.jpg';
 ---
 
 <Layout>
-  <h1 class='text-3xl text-center'>Victor Fuentes</h1>
+  <div class='mt-4'>
+    <h1 class='text-5xl text-center'>Victor Fuentes</h1>
+    <h2 class='text-4xl text-center'>Painter and Poet</h2>
+    <Image src={victor} alt='Painting of Nicaraguan house and villagers' />
+  </div>
 </Layout>

@@ -14,7 +14,9 @@ import Navigation from '@components/react/Navigation.tsx';
   <body class='h-full text-white bg-yellow-600'>
     <div class='min-h-full flex flex-col'>
       <Navigation client:load />
-      <slot />
+      <div class='px-3 py-2'>
+        <slot />
+      </div>
       <Footer />
     </div>
   </body>

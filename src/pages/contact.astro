@@ -1,7 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import ContactForm from '@components/astro/ContactForm.astro';
 ---
 
 <Layout>
-  <h1>Contact react component stuff here</h1>
+  <div class='sm:w-1/2 mx-auto'>
+    <h1>Email <a href='mailto:jwdavisdeveloper@gmail.com'>jwdavisdeveloper@gmail.com</a> or:</h1>
+    <ContactForm />
+  </div>
 </Layout>
