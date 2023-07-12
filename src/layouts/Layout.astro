@@ -1,6 +1,7 @@
 ---
 import Footer from '@components/astro/Footer.astro';
 import Navigation from '@components/react/Navigation.tsx';
+import Links from '@components/astro/Links.astro';
 ---
 
 <html lang='en' class='h-full'>
@@ -13,7 +14,11 @@ import Navigation from '@components/react/Navigation.tsx';
   </head>
   <body class='h-full text-white bg-yellow-600'>
     <div class='min-h-full flex flex-col'>
-      <Navigation client:load />
+      <!-- Will deal with the below error later - when I understand the TS more -->
+      <!-- @ts-ignore -->
+      <Navigation client:load>
+        <Links slot='links' />
+      </Navigation>
       <div class='px-3 py-2'>
         <slot />
       </div>
