@@ -2,14 +2,15 @@
 import victor from '@assets/images/victor1.jpg';
 import { Image } from 'astro:assets';
 import CommonContainer from './CommonContainer.astro';
-const { title } = Astro.props;
+const { title, paragraph } = Astro.props;
 ---
 
-<div class='w-full h-40 bg-gradient-tl from-purple-900 to-green-700 relative'>
+<div class='w-full h-48 bg-gradient-to-r from-orange-900 to-red-200 relative'>
   <Image src={victor} alt='Victor' class='w-full h-full object-cover absolute mix-blend-overlay' />
   <CommonContainer>
-    <div class=''>
+    <div class='p-6'>
       <h1 class='text-5xl font-bold'>{title}</h1>
+      <p class='mt-4 text-xl text-white'>{paragraph}</p>
     </div>
   </CommonContainer>
 </div>

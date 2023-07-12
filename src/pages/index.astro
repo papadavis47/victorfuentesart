@@ -2,18 +2,29 @@
 import { Image } from 'astro:assets';
 import Layout from '@layouts/Layout.astro';
 import victor from '@assets/images/victor1.jpg';
+import houses from '@assets/images/houses.jpg';
+import CommonContainer from '@components/astro/CommonContainer.astro';
 ---
 
 <Layout>
-  <div class='mt-4'>
-    <h1 class='text-5xl text-center'>Victor Fuentes</h1>
-    <h2 class='text-4xl text-center'>Painter and Poet</h2>
-    <Image
-      src={victor}
-      alt='Painting of Nicaraguan house and villagers'
-      width={600}
-      height={700}
-      class='mx-auto mt-5'
-    />
+  <div>
+    <div class='w-full h-64 bg-gradient-to-r from-orange-900 to-red-200 relative' '>
+      <Image
+        src={houses}
+        alt='Painting of Nicaraguan houses'
+        class='w-full h-full object-cover absolute mix-blend-overlay'
+      />
+      <div class='p-6'>
+        <h1 class='text-5xl text-center'>Victor Fuentes</h1>
+        <h2 class='text-4xl text-center'>Painter and Poet</h2>
+        <CommonContainer>
+          <p class='text-lg'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, natus. Est excepturi
+            soluta doloribus molestiae! Corrupti laborum fuga voluptas. Modi doloribus explicabo
+            provident sequi facilis nobis fugit veritatis? Corporis, possimus!
+          </p>
+        </CommonContainer>
+      </div>
+    </div>
   </div>
 </Layout>
