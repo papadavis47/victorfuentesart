@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import houses from '@assets/images/houses.jpg';
+import CommonContainer from '@components/astro/CommonContainer.astro';
+---
+
+<section class='w-full h-52 bg-gradient-to-r from-orange-900 to-red-200 relative' '>
+  <Image
+    src={houses}
+    alt='Painting of Nicaraguan houses'
+    class='w-full h-full object-cover absolute mix-blend-overlay'
+  />
+  <div class='p-6'>
+    <h1 class='text-5xl text-center'>Victor Fuentes</h1>
+    <h2 class='text-4xl text-center mt-3'>Painter and Poet</h2>
+    <CommonContainer>
+      <p class='text-base md:text-lg'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, natus. Est excepturi.
+      </p>
+    </CommonContainer>
+  </div>
+</section>
