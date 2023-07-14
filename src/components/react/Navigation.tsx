@@ -1,6 +1,6 @@
 export default function Navigation({ children }: { children: any }) {
   return (
-    <div className='bg-gradient-to-l from-red-600 to-slate-500'>
+    <div className='bg-gradient-to-l from-red-600 to-slate-500 sticky top-0'>
       <div className='max-w-7xl  flex items-baseline justify-between p-5 md:p-3 mx-auto'>
         <div>
           <a href='/'>

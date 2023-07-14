@@ -3,14 +3,17 @@ import victor from '@assets/images/victor1.jpg';
 import { Image } from 'astro:assets';
 import CommonContainer from './CommonContainer.astro';
 const { title, paragraph } = Astro.props;
+const victorSource = `background-image: url(${victor.src})`;
 ---
 
-<div class='w-full h-48 bg-gradient-to-r from-orange-900 to-red-200 relative'>
-  <Image src={victor} alt='Victor' class='w-full h-full object-cover absolute mix-blend-overlay' />
-  <CommonContainer>
-    <div class='p-6'>
-      <h1 class='text-5xl font-bold'>{title}</h1>
-      <p class='mt-4 text-xl text-white'>{paragraph}</p>
-    </div>
-  </CommonContainer>
+<div class='w-full h-48 bg-gradient-to-r from-orange-900 to-red-200'>
+  <div class='w-full h-full bg-cover bg-center' style={victorSource}>
+    <!-- <Image src={victor} alt='Victor' class='w-full h-full object-cover mix-blend-overlay' /> -->
+    <CommonContainer>
+      <div class='p-6'>
+        <h1 class='text-5xl font-bold'>{title}</h1>
+        <p class='mt-4 text-xl text-white'>{paragraph}</p>
+      </div>
+    </CommonContainer>
+  </div>
 </div>
