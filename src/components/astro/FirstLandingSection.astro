@@ -1,16 +1,13 @@
 ---
-import { Image } from 'astro:assets';
-import houses from '@assets/images/houses.jpg';
-import oil from '@assets/images/oil-on-canvas.jpg';
+import isla from '@assets/images/isla.jpg';
 import CommonContainer from '@components/astro/CommonContainer.astro';
-const oilSource = `background-image: url(${oil.src})`;
-const housesSource = `background-image: url(${houses.src})`;
+const islaSource = `background-image: url(${isla.src})`;
 ---
 
 <section class='w-full h-52 bg-gradient-to-r from-orange-900 to-red-200' '>
-  <div class='w-full h-full bg-cover bg-center' style={housesSource}>
+  <div class='w-full h-full bg-cover bg-center' style={islaSource}>
     <div class='p-6'>
-      <h1 class='text-4xl sm:text-5xl text-center font-bold'>Victor Fuentes</h1>
+      <h1 class='text-4xl sm:text-5xl text-center font-bold drop-shadow-xl'>Victor Fuentes</h1>
       <h2 class='text-3xl sm:text-4xl text-center mt-3 font-bold'>Painter and Poet</h2>
       <CommonContainer>
         <p class='text-base md:text-lg'>

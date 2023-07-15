@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/astro/Hero.astro';
 import FixedHero from '@components/astro/Experiments/FixedHero.astro';
+import TestFiller from '@components/astro/Experiments/TestFiller.astro';
 ---
 
 <Layout>
@@ -12,6 +13,10 @@ import FixedHero from '@components/astro/Experiments/FixedHero.astro';
       <
       div
     />
-    <FixedHero />
+    <div class='isolate'>
+      <FixedHero />
+    </div>
+    <TestFiller />
+    <TestFiller />
   </div>
 </Layout>
