@@ -1,5 +1,6 @@
 ---
-import victor from '@assets/images/victor1.jpg';
+// import victor from '@assets/images/victor1.jpg';
+import victor from '@assets/images/victor-experiment.jpg';
 import { Image } from 'astro:assets';
 import CommonContainer from './CommonContainer.astro';
 const { title, paragraph } = Astro.props;
@@ -11,8 +12,8 @@ const victorSource = `background-image: url(${victor.src})`;
     <!-- <Image src={victor} alt='Victor' class='w-full h-full object-cover mix-blend-overlay' /> -->
     <CommonContainer>
       <div class='p-6'>
-        <h1 class='text-5xl font-bold'>{title}</h1>
-        <p class='mt-4 text-xl text-white'>{paragraph}</p>
+        <h1 class='sm:text-6xl text-4xl font-bold'>{title}</h1>
+        <h2 class='mt-4 sm:text-2xl text-xl tracking-wider font-bold text-white'>{paragraph}</h2>
       </div>
     </CommonContainer>
   </div>
