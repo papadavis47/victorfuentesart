@@ -1,17 +1,18 @@
 ---
 import { Image } from 'astro:assets';
 import portrait from '@assets/images/perfect-portrait.jpg';
+import fruit from '@assets/images/fruit.jpg';
 ---
 
 <section>
   <div class='bg-zinc-600'>
-    <div class='grid md:grid-cols-2 grid-cols-1 gap-3'>
-      <div class='p-4 bg-zinc-200 m-3 text-slate-700'>
+    <div class='grid md:grid-cols-2 grid-cols-1 gap-2'>
+      <div class='p-4 bg-zinc-200 m-4 text-slate-700 text-lg rounded-sm'>
         <Image
           src={portrait}
           alt='Portrait of Victor'
-          width='230'
-          height='360'
+          width='300'
+          height='480'
           class='rounded-md sm:float-left m-3'
         />
         <p class='p-4'>
@@ -19,9 +20,15 @@ import portrait from '@assets/images/perfect-portrait.jpg';
           assumenda! Laborum aliquam porro omnis hic explicabo ut ullam aspernatur doloribus ratione
           ducimus, rerum necessitatibus commodi atque consequatur ex?
         </p>
-      </div>
-      <div class='p-4 bg-zinc-200 m-3 text-slate-700'>
         <p class='p-4'>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus quaerat voluptas
+          assumenda! Laborum aliquam porro omnis hic explicabo ut ullam aspernatur doloribus ratione
+          ducimus, rerum necessitatibus commodi atque consequatur ex?
+        </p>
+      </div>
+      <div class='p-4 bg-zinc-200 m-4 text-slate-700 text-lg rounded-sm'>
+        <Image src={fruit} alt='Painting of fruit' width='480' height='380' class='rounded-md' />
+        <p class='p-4 sm:float-left'>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus quaerat voluptas
           assumenda! Laborum aliquam porro omnis hic explicabo ut ullam aspernatur doloribus ratione
           ducimus, rerum necessitatibus commodi atque consequatur ex?
