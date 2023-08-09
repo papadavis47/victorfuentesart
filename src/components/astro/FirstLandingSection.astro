@@ -1,19 +1,19 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '@assets/images/perfect-portrait.jpg';
+import portrait from '@assets/images/perfect-portrait2.jpg';
 import fruit from '@assets/images/fruit.jpg';
 ---
 
-<section class=''>
-  <div class='bg-zinc-700 py-8 px-4'>
+<section class='min-h-full'>
+  <div class='bg-zinc-600 py-8 px-2'>
     <div class='grid md:grid-cols-2 grid-cols-1 gap-2'>
       <div class='p-4 bg-zinc-500 m-4 text-slate-100 text-lg rounded-md'>
         <Image
           src={portrait}
           alt='Portrait of Victor'
-          width='380'
+          width='480'
           height='480'
-          class='rounded-md sm:float-left p-4'
+          class='rounded-md md:float-left p-4'
         />
         <p class='p-4'>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus quaerat voluptas
