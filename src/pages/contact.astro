@@ -5,12 +5,14 @@ import Hero from '@components/astro/Hero.astro';
 ---
 
 <Layout>
-  <div>
-    <Hero title='Contact' paragraph='To inquire about sales:' />
-    <div class='sm:w-1/2 mx-auto text-slate-700 text-lg md:text-xl font-semibold my-8'>
-      <p class='pl-4'>
-        <a href='mailto:victorfuentesart@gmail.com'>victorfuentesart@gmail.com</a> or:
+  <div class='bg-zinc-600 text-white h-full flex flex-col flex-1 pb-8'>
+    <Hero title='Contact' />
+    <div class='w-3/4 sm:w-1/2 mx-auto text-lg md:text-xl font-semibold my-8'>
+      <p class='my-2'>To inquire about sales:</p>
+      <p class='my-2 font-bold tracking-wide'>
+        <a href='mailto:victorfuentesart@gmail.com'>victorfuentesart@gmail.com</a>
       </p>
+      <p class='my-2'>Or use the form below:</p>
       <ContactForm />
     </div>
   </div>
