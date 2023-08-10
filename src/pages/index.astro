@@ -3,15 +3,17 @@ import Layout from '@layouts/Layout.astro';
 import Hero from '@components/astro/Hero.astro';
 import FirstLandingSection from '@components/astro/FirstLandingSection.astro';
 import SecondLandingSection from '@components/astro/SecondLandingSection.astro';
+import ThirdLandingSection from '@components/astro/ThirdLandingSection.astro';
 import Title from '@components/astro/Title.astro';
 ---
 
 <Layout>
   <div class='bg-zinc-700'>
-    <Hero title='Victor Fuentes' subtitle='Painter and Poet' t' />
+    <Hero title='Victor Fuentes' />
     <Title title='Artist' />
     <FirstLandingSection />
     <SecondLandingSection />
     <Title title='Writer' />
+    <ThirdLandingSection />
   </div>
 </Layout>
