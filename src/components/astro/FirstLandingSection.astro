@@ -4,10 +4,10 @@ import portrait from '@assets/images/perfect-portrait2.jpg';
 import fruit from '@assets/images/fruit.jpg';
 ---
 
-<section class='w-full'>
+<section>
   <div class='py-4 px-2'>
     <div class='grid md:grid-cols-2 grid-cols-1 gap-2'>
-      <div class='bg-zinc-500 m-4 text-slate-100 shadow-black shadow-lg pt-2 pl-2'>
+      <div class='bg-zinc-500 m-4 text-slate-100 shadow-black shadow-lg pt-2 pl-2 md:min-h-[548px]'>
         <Image
           src={portrait}
           alt='Portrait of Victor'
@@ -28,7 +28,9 @@ import fruit from '@assets/images/fruit.jpg';
           </p>
         </div>
       </div>
-      <div class='bg-zinc-500 m-4 text-slate-100 text-lg shadow-black shadow-lg pt-2 pl-2'>
+      <div
+        class='bg-zinc-500 m-4 md:min-h-[548px] text-slate-100 text-lg shadow-black shadow-lg pt-2 pl-2'
+      >
         <Image
           src={fruit}
           alt='Painting of fruit'

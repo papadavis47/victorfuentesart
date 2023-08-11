@@ -8,12 +8,14 @@ import Title from '@components/astro/Title.astro';
 ---
 
 <Layout>
-  <div class='bg-zinc-700'>
+  <div>
     <Hero title='Victor Fuentes' />
     <Title title='Artist' />
-    <FirstLandingSection />
-    <SecondLandingSection />
-    <Title title='Writer' />
-    <ThirdLandingSection />
+    <div class='min-h-full'>
+      <FirstLandingSection />
+      <SecondLandingSection />
+      <Title title='Writer' />
+      <ThirdLandingSection />
+    </div>
   </div>
 </Layout>

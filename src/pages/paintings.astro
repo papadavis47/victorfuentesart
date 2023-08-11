@@ -1,10 +1,35 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/astro/Hero.astro';
+import { Image } from 'astro:assets';
+import isla from '@assets/images/isla.jpg';
+import boy from '@assets/images/boy.jpg';
+import yellowSky from '@assets/images/yellow-sky.jpg';
 ---
 
+<!-- Will continue to work on this -->
 <Layout>
   <div>
     <Hero title='Paintings' />
+    <section class='grid grid-cols-1 md:grid-cols-3 gap-2'>
+      <div>
+        <figure>
+          <Image src={isla} alt='Island of Ometepe' />
+        </figure>
+        <figcaption>Isla de Ometepe</figcaption>
+      </div>
+      <div class='row-start-2 col-start-2'>
+        <figure>
+          <Image src={boy} alt='Boy carrying water' class='w-full md:w-auto' />
+        </figure>
+        <figcaption>Boy carrying water</figcaption>
+      </div>
+      <div class='row-start-3 col-start-3'>
+        <figure>
+          <Image src={yellowSky} alt='Houses in Leon, Nicaragua' />
+        </figure>
+        <figcaption>Yellow Sky</figcaption>
+      </div>
+    </section>
   </div>
 </Layout>
