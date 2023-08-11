@@ -1,9 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/astro/Hero.astro';
-import FirstLandingSection from '@components/astro/FirstLandingSection.astro';
-import SecondLandingSection from '@components/astro/SecondLandingSection.astro';
-import ThirdLandingSection from '@components/astro/ThirdLandingSection.astro';
+import FirstLandingSection from '@components/astro/Landing/FirstLandingSection.astro';
+import SecondLandingSection from '@components/astro/Landing/SecondLandingSection.astro';
+import ThirdLandingSection from '@components/astro/Landing/ThirdLandingSection.astro';
 import Title from '@components/astro/Title.astro';
 ---
 
@@ -11,11 +11,9 @@ import Title from '@components/astro/Title.astro';
   <div>
     <Hero title='Victor Fuentes' />
     <Title title='Artist' />
-    <div class='min-h-full'>
-      <FirstLandingSection />
-      <SecondLandingSection />
-      <Title title='Writer' />
-      <ThirdLandingSection />
-    </div>
+    <FirstLandingSection />
+    <SecondLandingSection />
+    <Title title='Writer' />
+    <ThirdLandingSection />
   </div>
 </Layout>

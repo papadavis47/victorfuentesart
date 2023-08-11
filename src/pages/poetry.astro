@@ -1,10 +1,19 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/astro/Hero.astro';
+import PoemContainer from '@components/astro/Poetry/PoemContainer.astro';
+import CommonContainer from '@components/astro/CommonContainer.astro';
 ---
 
 <Layout>
   <div>
     <Hero title='Poetry' />
+    <div class='px-2'>
+      <CommonContainer>
+        <section>
+          <PoemContainer />
+        </section>
+      </CommonContainer>
+    </div>
   </div>
 </Layout>
