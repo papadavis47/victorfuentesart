@@ -3,6 +3,9 @@ import Layout from '@layouts/Layout.astro';
 import Hero from '@components/astro/Hero.astro';
 import PoemContainer from '@components/astro/Poetry/PoemContainer.astro';
 import CommonContainer from '@components/astro/CommonContainer.astro';
+import Poem from '@components/react/Poem.tsx';
+import Spacer from '@components/astro/Spacer.astro';
+import { testPoem } from '../data/poems.ts';
 ---
 
 <Layout>
@@ -10,9 +13,36 @@ import CommonContainer from '@components/astro/CommonContainer.astro';
     <Hero title='Poetry' />
     <div class='px-2'>
       <CommonContainer>
-        <section>
-          <PoemContainer />
-        </section>
+        <Spacer>
+          <PoemContainer>
+            <Poem
+              client:load
+              data={testPoem}
+              englishTitle='Test Poem'
+              spanishTitle='Poema Prueba'
+            />
+          </PoemContainer>
+        </Spacer>
+        <Spacer>
+          <PoemContainer>
+            <Poem
+              client:load
+              data={testPoem}
+              englishTitle='Test Poem'
+              spanishTitle='Poema Prueba'
+            />
+          </PoemContainer>
+        </Spacer>
+        <Spacer>
+          <PoemContainer>
+            <Poem
+              client:load
+              data={testPoem}
+              englishTitle='Test Poem'
+              spanishTitle='Poema Prueba'
+            />
+          </PoemContainer>
+        </Spacer>
       </CommonContainer>
     </div>
   </div>
