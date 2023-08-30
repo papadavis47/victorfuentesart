@@ -2,9 +2,11 @@
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/astro/Hero.astro';
 import FirstLandingSection from '@components/astro/Landing/FirstLandingSection.astro';
-import SecondLandingSection from '@components/astro/Landing/SecondLandingSection.astro';
+import ImageSection from '@components/astro/Landing/ImageSection.astro';
 import ThirdLandingSection from '@components/astro/Landing/ThirdLandingSection.astro';
 import Title from '@components/astro/Title.astro';
+import Cuadro from '@assets/images/Cuadro.jpg';
+import HousesVolcano from '@assets/images/houses-volcano.jpg';
 ---
 
 <Layout>
@@ -12,8 +14,9 @@ import Title from '@components/astro/Title.astro';
     <Hero title='Victor Fuentes' />
     <Title title='Artist' />
     <FirstLandingSection />
-    <SecondLandingSection />
+    <ImageSection image={Cuadro} alt='Painting of flowers' />
     <Title title='Writer' />
     <ThirdLandingSection />
+    <ImageSection image={HousesVolcano} alt='Painting of Houses with Volcano' />
   </div>
 </Layout>
