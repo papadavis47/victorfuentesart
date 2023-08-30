@@ -1,8 +1,13 @@
 ---
+type Props = {
+  size: 'xl' | 'lg' | 'base';
+};
+
+const { size } = Astro.props;
 ---
 
 <nav>
-  <ul class='flex justify-between text-zinc-100 gap-x-5 capitalize font-semibold text-xl'>
+  <ul class=`flex justify-between text-zinc-100 gap-x-5 capitalize font-semibold text-${size}`>
     <li class='hover:font-bold'>
       <a href='/paintings'>paintings</a>
     </li>
