@@ -4,15 +4,16 @@ import Navigation from '@components/react/Navigation.tsx';
 import Links from '@components/astro/Links.astro';
 import { ViewTransitions } from 'astro:transitions';
 import { fade } from 'astro:transitions';
+const {metaTitle} = Astro.props;
 ---
 
 <html lang='en' class='h-full'>
   <head transition:animate={fade({ duration: '0.5s' })}>
     <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
-    <title>Victor Fuentes Portfolio</title>
+    <title>{metaTitle}</title>
     <ViewTransitions />
   </head>
   <body class='h-full text-white bg-zinc-700'>
