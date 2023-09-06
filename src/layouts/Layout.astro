@@ -4,6 +4,9 @@ import Navigation from '@components/react/Navigation.tsx';
 import Links from '@components/astro/Links.astro';
 import { ViewTransitions } from 'astro:transitions';
 import { fade } from 'astro:transitions';
+type Props = {
+  metaTitle: string;
+};
 const {metaTitle} = Astro.props;
 ---
 
@@ -13,7 +16,7 @@ const {metaTitle} = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
-    <title>{metaTitle}</title>
+    <title>{`${metaTitle} | Victor Fuentes Art`}</title>
     <ViewTransitions />
   </head>
   <body class='h-full text-white bg-zinc-700'>
