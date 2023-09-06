@@ -5,7 +5,7 @@ import PoemContainer from '@components/astro/Poetry/PoemContainer.astro';
 import CommonContainer from '@components/astro/CommonContainer.astro';
 import Poem from '@components/react/Poem.tsx';
 import Spacer from '@components/astro/Spacer.astro';
-import { testPoem } from '../data/poems.ts';
+import { poems } from '../data/poems.ts';
 ---
 
 <Layout metaTitle="Poetry">
@@ -17,7 +17,7 @@ import { testPoem } from '../data/poems.ts';
           <PoemContainer>
             <Poem
               client:load
-              data={testPoem}
+              data={poems['testPoem']}
               englishTitle='Test Poem'
               spanishTitle='Poema Prueba'
             />
@@ -27,7 +27,7 @@ import { testPoem } from '../data/poems.ts';
           <PoemContainer>
             <Poem
               client:load
-              data={testPoem}
+              data={poems['testPoem']}
               englishTitle='Test Poem'
               spanishTitle='Poema Prueba'
             />
@@ -37,7 +37,7 @@ import { testPoem } from '../data/poems.ts';
           <PoemContainer>
             <Poem
               client:load
-              data={testPoem}
+              data={poems['testPoem']}
               englishTitle='Test Poem'
               spanishTitle='Poema Prueba'
             />
