@@ -17,7 +17,17 @@ import { poems } from '../data/poems.ts';
           <PoemContainer>
             <Poem
               client:load
-              data={poems['testPoem']}
+              data={poems['imagenesDeAmor']}
+              englishTitle='Images of Love'
+              spanishTitle='Imagenes De Amor'
+            />
+          </PoemContainer>
+        </Spacer>
+        <Spacer>
+          <PoemContainer>
+            <Poem
+              client:load
+              data={poems['imagenesDeAmor']}
               englishTitle='Test Poem'
               spanishTitle='Poema Prueba'
             />
@@ -27,17 +37,7 @@ import { poems } from '../data/poems.ts';
           <PoemContainer>
             <Poem
               client:load
-              data={poems['testPoem']}
-              englishTitle='Test Poem'
-              spanishTitle='Poema Prueba'
-            />
-          </PoemContainer>
-        </Spacer>
-        <Spacer>
-          <PoemContainer>
-            <Poem
-              client:load
-              data={poems['testPoem']}
+              data={poems['imagenesDeAmor']}
               englishTitle='Test Poem'
               spanishTitle='Poema Prueba'
             />
