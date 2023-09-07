@@ -1,7 +1,7 @@
 ---
 import victor from '@assets/images/victor-experiment.jpg';
 import CommonContainer from './CommonContainer.astro';
-const { title, subtitle } = Astro.props;
+const { title } = Astro.props;
 const victorSource = `background-image: url(${victor.src})`;
 ---
 
@@ -10,9 +10,6 @@ const victorSource = `background-image: url(${victor.src})`;
     <CommonContainer>
       <div class='p-3 sm:p-4 sm:mx-auto'>
         <h1 class='md:text-8xl text-5xl font-bold'>{title}</h1>
-        <h2 class='mt-1 sm:pl-0 sm:text-2xl text-lg tracking-wide font-bold italic text-white'>
-          {subtitle}
-        </h2>
       </div>
     </CommonContainer>
   </div>

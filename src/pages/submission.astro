@@ -1,0 +1,16 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/astro/Hero.astro';
+import SubmissionMessage from '@components/astro/SubmissionMessage.astro';
+import OilPainting from '@assets/images/oil-on-canvas.jpg';
+import { Image } from 'astro:assets';
+---
+
+<Layout metaTitle="Submission Success">
+      <article class="h-full pb-8">
+      <Hero title="Thank you!" />
+      <SubmissionMessage />
+      <Image src={OilPainting} alt="Oil Painting" class="w-full h-full" />
+
+      </article>
+</Layout>
