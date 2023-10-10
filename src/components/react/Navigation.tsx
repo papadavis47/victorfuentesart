@@ -1,4 +1,4 @@
-export default function Navigation({ children }: { children: any }) {
+export default function Navigation({ children }: { children: React.ReactNode }) {
   return (
     <div className='bg-gradient-to-l from-red-600 to-slate-500 sticky top-0 isolate z-10'>
       <div className='max-w-7xl  flex items-center justify-between p-5 md:p-5 mx-auto'>
