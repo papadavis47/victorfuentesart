@@ -1,6 +1,10 @@
 ---
 import victor from '@assets/images/victor-experiment.jpg';
 import CommonContainer from './CommonContainer.astro';
+import type { HeroProps } from '@/types';
+
+type Props = HeroProps;
+
 const { title } = Astro.props;
 const victorSource = `background-image: url(${victor.src})`;
 ---
