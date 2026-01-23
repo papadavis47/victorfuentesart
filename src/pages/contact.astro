@@ -1,22 +1,45 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import ContactForm from '@components/astro/Contact/ContactForm.astro';
-import Hero from '@components/astro/Hero.astro';
-import CommonContainer from '@components/astro/CommonContainer.astro';
 ---
 
-<Layout metaTitle="Contact">
-  <div class=' h-full pb-8'>
-    <Hero title='Contact' />
-    <CommonContainer>
-      <div class='text-lg md:text-xl font-semibold my-8'>
-        <p class='my-2 uppercase'>for sales inquiries:</p>
-        <p class='py-2 font-bold tracking-wider'>
-          <a href='mailto:victorfuentesart@gmail.com'>victorfuentesart@gmail.com</a>
-        </p>
-        <p class='py-2 my-2'>Or use the form below:</p>
-        <ContactForm contactName="information-request"/>
-      </div>
-    </CommonContainer>
+<Layout metaTitle='Contact'>
+  <div class='max-w-3xl mx-auto px-6 py-16'>
+    <!-- Page Header -->
+    <header class='text-center mb-12'>
+      <h1
+        class='font-serif text-4xl md:text-5xl mb-4'
+        style='color: var(--text-primary);'
+      >
+        Contact
+      </h1>
+      <p class='text-lg' style='color: var(--text-secondary);'>
+        Interested in a painting or have a question?
+      </p>
+    </header>
+
+    <!-- Direct Email -->
+    <div class='text-center mb-12'>
+      <p class='text-sm uppercase tracking-wider mb-2' style='color: var(--text-muted);'>
+        Email directly
+      </p>
+      <a
+        href='mailto:victorfuentesart@gmail.com'
+        class='text-xl font-medium hover:underline'
+        style='color: var(--accent-terracotta);'
+      >
+        victorfuentesart@gmail.com
+      </a>
+    </div>
+
+    <!-- Divider -->
+    <div class='flex items-center gap-4 mb-12'>
+      <div class='flex-1 h-px' style='background-color: var(--border-subtle);'></div>
+      <span class='text-sm' style='color: var(--text-muted);'>or send a message</span>
+      <div class='flex-1 h-px' style='background-color: var(--border-subtle);'></div>
+    </div>
+
+    <!-- Contact Form -->
+    <ContactForm contactName='contact-inquiry' />
   </div>
 </Layout>

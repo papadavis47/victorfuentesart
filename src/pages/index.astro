@@ -1,22 +1,14 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Hero from '@components/astro/Hero.astro';
-import FirstLandingSection from '@components/astro/Landing/FirstLandingSection.astro';
-import ImageSection from '@components/astro/Landing/ImageSection.astro';
-import ThirdLandingSection from '@components/astro/Landing/ThirdLandingSection.astro';
-import Title from '@components/astro/Title.astro';
-import Cuadro from '@assets/images/Cuadro.webp';
-import HousesVolcano from '@assets/images/houses-volcano.webp';
+import PortraitHero from '@components/astro/PortraitHero.astro';
+import FeaturedWorks from '@components/astro/FeaturedWorks.astro';
+import BioSection from '@components/astro/BioSection.astro';
+import PoetryTeaser from '@components/astro/PoetryTeaser.astro';
 ---
 
 <Layout metaTitle="Home">
-  <div>
-    <Hero title='Victor Fuentes' />
-    <Title title='Artist' />
-    <FirstLandingSection />
-    <ImageSection image={Cuadro} alt='Painting of flowers' />
-    <Title title='Writer' />
-    <ThirdLandingSection />
-    <ImageSection image={HousesVolcano} alt='Painting of Houses with Volcano' />
-  </div>
+  <PortraitHero />
+  <FeaturedWorks />
+  <BioSection />
+  <PoetryTeaser />
 </Layout>

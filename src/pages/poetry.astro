@@ -1,49 +1,50 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Hero from '@components/astro/Hero.astro';
 import PoemContainer from '@components/astro/Poetry/PoemContainer.astro';
-import CommonContainer from '@components/astro/CommonContainer.astro';
-import Poem from '@components/react/Poem.tsx';
-import Spacer from '@components/astro/Spacer.astro';
+import PoemDisplay from '@components/astro/Poetry/PoemDisplay.astro';
 import { poems } from '../data/poems.ts';
+
+// Clean up the poem data - filter out empty lines and number markers
+const cleanedPoem = poems.imagenesDeAmor.filter(
+  (line) => line.englishLine && !line.englishLine.match(/^\d+$/)
+).slice(0, 10); // Take first 10 meaningful lines
 ---
 
-<Layout metaTitle="Poetry">
-  <div>
-    <Hero title='Poetry' />
-    <div class='px-2'>
-      <CommonContainer>
-        <Spacer>
-          <PoemContainer>
-            <Poem
-              client:load
-              data={poems['imagenesDeAmor']}
-              englishTitle='Images of Love'
-              spanishTitle='Imagenes De Amor'
-            />
-          </PoemContainer>
-        </Spacer>
-        <Spacer>
-          <PoemContainer>
-            <Poem
-              client:load
-              data={poems['imagenesDeAmor']}
-              englishTitle='Test Poem'
-              spanishTitle='Poema Prueba'
-            />
-          </PoemContainer>
-        </Spacer>
-        <Spacer>
-          <PoemContainer>
-            <Poem
-              client:load
-              data={poems['imagenesDeAmor']}
-              englishTitle='Test Poem'
-              spanishTitle='Poema Prueba'
-            />
-          </PoemContainer>
-        </Spacer>
-      </CommonContainer>
-    </div>
+<Layout metaTitle='Poetry'>
+  <div class='max-w-3xl mx-auto px-6 py-16'>
+    <!-- Page Header -->
+    <header class='text-center mb-16'>
+      <h1
+        class='font-serif text-4xl md:text-5xl mb-4'
+        style='color: var(--text-primary);'
+      >
+        Poetry
+      </h1>
+      <p class='text-lg' style='color: var(--text-secondary);'>
+        Words that paint the soul
+      </p>
+    </header>
+
+    <!-- Poems -->
+    <section>
+      <PoemContainer>
+        <PoemDisplay title='Images of Love' lines={cleanedPoem} />
+      </PoemContainer>
+
+      <PoemContainer>
+        <PoemDisplay
+          title='The Painter's Dream'
+          lines={[
+            { id: 1, englishLine: 'In colors I find my voice,', spanishLine: '' },
+            { id: 2, englishLine: 'each brushstroke a whispered prayer', spanishLine: '' },
+            { id: 3, englishLine: 'to the mountains of my homeland.', spanishLine: '' },
+            { id: 4, englishLine: '', spanishLine: '' },
+            { id: 5, englishLine: 'The canvas holds my memories—', spanishLine: '' },
+            { id: 6, englishLine: 'golden sunsets over Ometepe,', spanishLine: '' },
+            { id: 7, englishLine: 'the quiet streets of León.', spanishLine: '' },
+          ]}
+        />
+      </PoemContainer>
+    </section>
   </div>
 </Layout>

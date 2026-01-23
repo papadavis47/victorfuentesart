@@ -1,0 +1,36 @@
+---
+// Simple poem display - English only (i18n will handle translation later)
+export interface PoemLine {
+  id: number;
+  englishLine: string;
+  spanishLine: string;
+}
+
+type Props = {
+  title: string;
+  lines: PoemLine[];
+};
+
+const { title, lines } = Astro.props;
+---
+
+<div>
+  <h2
+    class='font-serif text-2xl md:text-3xl mb-6 italic'
+    style='color: var(--text-primary);'
+  >
+    {title}
+  </h2>
+  <div class='space-y-1'>
+    {lines.map((item) => (
+      item.englishLine && (
+        <p
+          class='text-base md:text-lg leading-relaxed'
+          style='color: var(--text-secondary);'
+        >
+          {item.englishLine}
+        </p>
+      )
+    ))}
+  </div>
+</div>

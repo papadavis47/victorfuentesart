@@ -1,0 +1,140 @@
+---
+---
+
+<section class="poetry-teaser">
+  <div class="container">
+    <h2 class="section-title">Poetry</h2>
+    <div class="poem-card">
+      <blockquote class="poem-excerpt">
+        <p class="poem-line">In the quiet of morning light,</p>
+        <p class="poem-line">colors speak what words cannot—</p>
+        <p class="poem-line">a brushstroke holds the weight of years,</p>
+        <p class="poem-line">memories painted, never forgot.</p>
+      </blockquote>
+      <p class="poem-attribution">— from <em>Images of Love</em></p>
+    </div>
+    <p class="teaser-text">
+      Explore Victor's bilingual poetry collection, featuring works in both English and Spanish that complement his visual art.
+    </p>
+    <div class="cta-wrapper">
+      <a href="/poetry" class="cta-link">
+        Read Poetry
+        <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .poetry-teaser {
+    padding: 5rem 1.5rem;
+    background-color: var(--bg-secondary);
+  }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 2.5rem 0;
+  }
+
+  .poem-card {
+    background-color: var(--bg-card);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+  }
+
+  .poem-excerpt {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    border: none;
+  }
+
+  .poem-line {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.6;
+  }
+
+  .poem-line:last-child {
+    margin-bottom: 0;
+  }
+
+  .poem-attribution {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .teaser-text {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 2rem 0;
+  }
+
+  .cta-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent-terracotta);
+    text-decoration: none;
+    transition: color var(--transition-fast), gap var(--transition-fast);
+  }
+
+  .cta-link:hover {
+    color: var(--text-primary);
+    gap: 0.75rem;
+  }
+
+  .arrow-icon {
+    transition: transform var(--transition-fast);
+  }
+
+  .cta-link:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  @media (min-width: 768px) {
+    .poetry-teaser {
+      padding: 6rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .poem-card {
+      padding: 3rem 2.5rem;
+    }
+
+    .poem-line {
+      font-size: 1.375rem;
+    }
+  }
+</style>

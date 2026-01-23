@@ -1,1 +1,170 @@
+/* Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
 @import "tailwindcss";
+
+/* Custom Properties - Design System */
+:root {
+  /* Backgrounds */
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F5F3F0;
+  --bg-card: #FFFFFF;
+
+  /* Text */
+  --text-primary: #2D2D2D;
+  --text-secondary: #6B6B6B;
+  --text-muted: #9A9A9A;
+
+  /* Accents (derived from paintings) */
+  --accent-terracotta: #C4704B;
+  --accent-olive: #6B7F5E;
+  --accent-gold: #B8965A;
+
+  /* Borders */
+  --border-subtle: #E5E2DD;
+  --border-medium: #D4D0C8;
+
+  /* Shadows */
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-medium: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* Base Styles */
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: color var(--transition-fast),
+              background-color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-terracotta);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar (subtle) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Utility classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-medium) ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--transition-slow) ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--transition-medium) ease forwards;
+}
+
+.animate-slide-out-right {
+  animation: slideOutRight var(--transition-medium) ease forwards;
+}
+
+/* Image hover effect for gallery */
+.gallery-image {
+  transition: transform var(--transition-medium),
+              box-shadow var(--transition-medium);
+}
+
+.gallery-image:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(4px);
+}

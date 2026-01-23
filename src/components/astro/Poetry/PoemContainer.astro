@@ -1,9 +1,12 @@
 ---
 ---
-<!-- This is a container for each individual poem -->
+<!-- Container for each individual poem - elegant light theme -->
 
-<article class='border-zinc-500 text-slate-600 border-4 shadow-md shadow-sky-100 mt-8'>
-  <div class='bg-slate-100 p-6 md:pl-10'>
+<article
+  class='rounded-lg shadow-sm my-8 overflow-hidden'
+  style='background-color: var(--bg-card); border: 1px solid var(--border-subtle);'
+>
+  <div class='p-8 md:p-12'>
     <slot />
   </div>
 </article>

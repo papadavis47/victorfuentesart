@@ -19,6 +19,4 @@ export interface LinkProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export interface NavigationProps {
-  children: React.ReactNode;
-}
+// Navigation component no longer requires props - links are internal

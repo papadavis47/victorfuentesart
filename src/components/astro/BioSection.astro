@@ -1,0 +1,97 @@
+---
+---
+
+<section class="bio-section">
+  <div class="container">
+    <h2 class="section-title">About the Artist</h2>
+    <div class="bio-content">
+      <p>
+        Victor Fuentes is a Nicaraguan painter and poet whose work captures the vibrant spirit of Central American life. Born in Granada, he developed his artistic voice through decades of dedicated practice, blending traditional techniques with a deeply personal vision that reflects his homeland's rich cultural heritage.
+      </p>
+      <p>
+        His paintings traverse multiple genres—from lush landscapes depicting volcanic peaks and colonial architecture to intimate figurative works and bold abstract compositions. Each piece carries the warmth of tropical light and the emotional depth that comes from a lifetime of observing the human condition.
+      </p>
+      <p>
+        Beyond the canvas, Victor expresses himself through poetry, weaving words in both Spanish and English to explore themes of love, memory, and the beauty found in everyday moments. His dual practice as painter and poet creates a unique artistic dialogue, each medium informing and enriching the other.
+      </p>
+    </div>
+    <div class="cta-wrapper">
+      <a href="/paintings" class="cta-button">View Paintings</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bio-section {
+    padding: 5rem 1.5rem;
+    background-color: var(--bg-primary);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 0 0 2.5rem 0;
+  }
+
+  .bio-content {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .bio-content p {
+    margin: 0 0 1.5rem 0;
+  }
+
+  .bio-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .cta-wrapper {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bg-primary);
+    background-color: var(--accent-terracotta);
+    border-radius: 4px;
+    transition: background-color var(--transition-medium), transform var(--transition-fast);
+  }
+
+  .cta-button:hover {
+    background-color: var(--text-primary);
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 768px) {
+    .bio-section {
+      padding: 6rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .bio-content {
+      font-size: 1.125rem;
+    }
+  }
+</style>

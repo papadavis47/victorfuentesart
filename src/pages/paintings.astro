@@ -1,35 +1,55 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Hero from '@components/astro/Hero.astro';
-import { Image } from 'astro:assets';
+import PageHeader from '@components/astro/PageHeader.astro';
+import GalleryGrid from '@components/react/GalleryGrid';
+
+// Island paintings
 import isla from '@assets/images/isla.webp';
+import isla2 from '@assets/images/isla2.webp';
+import ometepe from '@assets/images/ometepe.webp';
+
+// Figurative
 import boy from '@assets/images/boy.webp';
+
+// Landscapes
+import housesVolcano from '@assets/images/houses-volcano.webp';
 import yellowSky from '@assets/images/yellow-sky.webp';
+
+// Portrait
+import beso from '@assets/images/beso.webp';
+
+// Still life
+import fruit from '@assets/images/fruit.webp';
+import cuadro from '@assets/images/Cuadro.webp';
+
+// Abstract
+import colorfulShapes from '@assets/images/colorful-shapes.webp';
+
+// Other works
+import withDolls from '@assets/images/with-dolls.webp';
+import oilOnCanvas from '@assets/images/oil-on-canvas.webp';
+import horses from '@assets/images/horses.webp';
+
+const paintings = [
+  { src: isla.src, alt: 'Island of Ometepe painting', title: 'Isla de Ometepe' },
+  { src: isla2.src, alt: 'Island scene with palm trees', title: 'Isla II' },
+  { src: ometepe.src, alt: 'View of Ometepe volcano', title: 'Ometepe' },
+  { src: boy.src, alt: 'Boy carrying water', title: 'Boy Carrying Water' },
+  { src: housesVolcano.src, alt: 'Houses with volcano backdrop', title: 'Houses and Volcano' },
+  { src: yellowSky.src, alt: 'Houses under yellow sky', title: 'Yellow Sky' },
+  { src: beso.src, alt: 'The kiss painting', title: 'El Beso' },
+  { src: fruit.src, alt: 'Still life with fruit', title: 'Fruit' },
+  { src: cuadro.src, alt: 'Still life composition', title: 'Cuadro' },
+  { src: colorfulShapes.src, alt: 'Abstract colorful shapes', title: 'Colorful Shapes' },
+  { src: withDolls.src, alt: 'Figure with dolls', title: 'With Dolls' },
+  { src: oilOnCanvas.src, alt: 'Oil painting on canvas', title: 'Oil on Canvas' },
+  { src: horses.src, alt: 'Horses painting', title: 'Horses' },
+];
 ---
 
-<!-- Will continue to work on this -->
 <Layout metaTitle="Paintings">
-  <div>
-    <Hero title='Paintings' />
-    <section class='grid grid-cols-1 md:grid-cols-3 gap-2 my-6'>
-      <div>
-        <figure>
-          <Image src={isla} alt='Island of Ometepe' />
-        </figure>
-        <figcaption>Isla de Ometepe</figcaption>
-      </div>
-      <div class='md:row-start-2 md:col-start-2'>
-        <figure>
-          <Image src={boy} alt='Boy carrying water' class='w-full md:w-auto' />
-        </figure>
-        <figcaption>Boy carrying water</figcaption>
-      </div>
-      <div class='md:row-start-3 md:col-start-3'>
-        <figure>
-          <Image src={yellowSky} alt='Houses in Leon, Nicaragua' />
-        </figure>
-        <figcaption>Yellow Sky</figcaption>
-      </div>
-    </section>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <PageHeader title="Paintings" />
+    <GalleryGrid paintings={paintings} client:load />
   </div>
 </Layout>

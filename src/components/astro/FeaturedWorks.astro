@@ -1,0 +1,138 @@
+---
+import { Image } from 'astro:assets';
+import housesVolcano from '@assets/images/houses-volcano.webp';
+import beso from '@assets/images/beso.webp';
+import fruit from '@assets/images/fruit.webp';
+import colorfulShapes from '@assets/images/colorful-shapes.webp';
+
+const featuredPaintings = [
+  { src: housesVolcano, alt: 'Houses with volcano - landscape painting', title: 'Landscape' },
+  { src: beso, alt: 'Beso - figurative painting', title: 'Figurative' },
+  { src: fruit, alt: 'Fruit - still life painting', title: 'Still Life' },
+  { src: colorfulShapes, alt: 'Colorful shapes - abstract painting', title: 'Abstract' },
+];
+---
+
+<section class="featured-works">
+  <div class="container">
+    <h2 class="section-title">Featured Works</h2>
+    <div class="works-grid">
+      {featuredPaintings.map((painting, index) => (
+        <a href="/paintings" class="painting-card" style={`animation-delay: ${index * 100}ms;`}>
+          <div class="image-wrapper">
+            <Image
+              src={painting.src}
+              alt={painting.alt}
+              class="painting-image"
+              width={600}
+              height={450}
+            />
+          </div>
+          <span class="painting-label">{painting.title}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-works {
+    padding: 5rem 1.5rem;
+    background-color: var(--bg-secondary);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 0 0 3rem 0;
+  }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .painting-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    text-decoration: none;
+    animation: fadeInUp var(--transition-slow) ease forwards;
+    opacity: 0;
+  }
+
+  .painting-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .image-wrapper {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .painting-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-medium);
+  }
+
+  .painting-card:hover .painting-image {
+    transform: scale(1.03);
+  }
+
+  .painting-label {
+    display: block;
+    padding: 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+    background-color: var(--bg-card);
+  }
+
+  @media (min-width: 640px) {
+    .works-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .featured-works {
+      padding: 6rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
