@@ -21,3 +21,7 @@ pnpm-debug.log*
 
 # For Notes
 scratch.md
+
+# Claude Code
+CLAUDE.md
+.claude/
