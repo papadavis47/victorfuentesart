@@ -1,22 +1,24 @@
 ---
+import { t, type Locale } from "@/i18n";
+import { withLocale } from "@/i18n/routing";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = 'en' } = Astro.props;
 ---
 
 <section class="bio-section">
   <div class="container">
-    <h2 class="section-title">About the Artist</h2>
+    <h2 class="section-title">{t(locale, 'home.aboutTitle')}</h2>
     <div class="bio-content">
-      <p>
-        Victor Fuentes is a Nicaraguan painter and poet whose work captures the vibrant spirit of Central American life. Born in Granada, he developed his artistic voice through decades of dedicated practice, blending traditional techniques with a deeply personal vision that reflects his homeland's rich cultural heritage.
-      </p>
-      <p>
-        His paintings traverse multiple genres—from lush landscapes depicting volcanic peaks and colonial architecture to intimate figurative works and bold abstract compositions. Each piece carries the warmth of tropical light and the emotional depth that comes from a lifetime of observing the human condition.
-      </p>
-      <p>
-        Beyond the canvas, Victor expresses himself through poetry, weaving words in both Spanish and English to explore themes of love, memory, and the beauty found in everyday moments. His dual practice as painter and poet creates a unique artistic dialogue, each medium informing and enriching the other.
-      </p>
+      <p>{t(locale, 'home.aboutP1')}</p>
+      <p>{t(locale, 'home.aboutP2')}</p>
+      <p>{t(locale, 'home.aboutP3')}</p>
     </div>
     <div class="cta-wrapper">
-      <a href="/paintings" class="cta-button">View Paintings</a>
+      <a href={withLocale('/paintings', locale)} class="cta-button">{t(locale, 'home.viewPaintings')}</a>
     </div>
   </div>
 </section>

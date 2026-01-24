@@ -1,24 +1,32 @@
 ---
+import { t, type Locale } from "@/i18n";
+import { withLocale } from "@/i18n/routing";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = 'en' } = Astro.props;
 ---
 
 <section class="poetry-teaser">
   <div class="container">
-    <h2 class="section-title">Poetry</h2>
+    <h2 class="section-title">{t(locale, 'home.poetryTeaser')}</h2>
     <div class="poem-card">
       <blockquote class="poem-excerpt">
-        <p class="poem-line">In the quiet of morning light,</p>
-        <p class="poem-line">colors speak what words cannot—</p>
-        <p class="poem-line">a brushstroke holds the weight of years,</p>
-        <p class="poem-line">memories painted, never forgot.</p>
+        <p class="poem-line">{t(locale, 'home.poetryPoemLine1')}</p>
+        <p class="poem-line">{t(locale, 'home.poetryPoemLine2')}</p>
+        <p class="poem-line">{t(locale, 'home.poetryPoemLine3')}</p>
+        <p class="poem-line">{t(locale, 'home.poetryPoemLine4')}</p>
       </blockquote>
-      <p class="poem-attribution">— from <em>Images of Love</em></p>
+      <p class="poem-attribution">— {t(locale, 'home.poetryFrom')} <em>Images of Love</em></p>
     </div>
     <p class="teaser-text">
-      Explore Victor's bilingual poetry collection, featuring works in both English and Spanish that complement his visual art.
+      {t(locale, 'home.poetryDescription')}
     </p>
     <div class="cta-wrapper">
-      <a href="/poetry" class="cta-link">
-        Read Poetry
+      <a href={withLocale('/poetry', locale)} class="cta-link">
+        {t(locale, 'home.readPoetry')}
         <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>

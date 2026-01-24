@@ -25,3 +25,6 @@ scratch.md
 # Claude Code
 CLAUDE.md
 .claude/
+
+# Amp agents
+.agents/

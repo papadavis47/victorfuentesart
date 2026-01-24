@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import LanguageToggle from './LanguageToggle';
+import { withLocale } from '../../i18n/routing';
+import { t, type Locale } from '../../i18n';
 
-const navLinks = [
-  { href: '/paintings', label: 'Paintings' },
-  { href: '/poetry', label: 'Poetry' },
-  { href: '/contact', label: 'Contact' },
-];
+interface NavigationProps {
+  locale?: Locale;
+}
 
-export default function Navigation() {
+export default function Navigation({ locale = 'en' }: NavigationProps) {
+  const navLinks = [
+    { href: '/paintings', label: t(locale, 'nav.paintings') },
+    { href: '/poetry', label: t(locale, 'nav.poetry') },
+    { href: '/contact', label: t(locale, 'nav.contact') },
+  ];
   const [isOpen, setIsOpen] = useState(false);
 
   // Prevent body scroll when mobile menu is open
@@ -42,7 +49,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo / Home Link */}
           <a
-            href="/"
+            href={withLocale('/', locale)}
             className="flex items-center gap-2 group"
             style={{ color: 'var(--text-primary)' }}
           >
@@ -61,7 +68,7 @@ export default function Navigation() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={withLocale(link.href, locale)}
                 className="text-sm md:text-base font-medium tracking-wide transition-colors duration-200"
                 style={{
                   color: 'var(--text-primary)',
@@ -77,6 +84,7 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
+            <LanguageToggle locale={locale} />
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -88,19 +96,7 @@ export default function Navigation() {
             aria-expanded={isOpen}
             style={{ color: 'var(--text-primary)' }}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"
-              />
-            </svg>
+            <Menu className="w-6 h-6" />
           </button>
         </div>
       </div>
@@ -134,26 +130,14 @@ export default function Navigation() {
             aria-label="Close menu"
             style={{ color: 'var(--text-primary)' }}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <X className="w-6 h-6" />
           </button>
         </div>
 
         {/* Mobile Links */}
         <nav className="px-6 py-4">
           <a
-            href="/"
+            href={withLocale('/', locale)}
             className="block py-3 text-lg font-medium transition-colors duration-200"
             style={{
               color: 'var(--text-primary)',
@@ -162,12 +146,12 @@ export default function Navigation() {
             }}
             onClick={() => setIsOpen(false)}
           >
-            Home
+            {t(locale, 'nav.home')}
           </a>
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={withLocale(link.href, locale)}
               className="block py-3 text-lg font-medium transition-colors duration-200"
               style={{
                 color: 'var(--text-primary)',
@@ -185,6 +169,9 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
+          <div className="pt-4">
+            <LanguageToggle locale={locale} />
+          </div>
         </nav>
       </div>
     </nav>

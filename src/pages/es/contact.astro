@@ -1,0 +1,48 @@
+---
+import Layout from '@layouts/Layout.astro';
+import ContactForm from '@components/astro/Contact/ContactForm.astro';
+import { t } from '@/i18n';
+
+const locale = 'es';
+---
+
+<Layout metaTitle={t(locale, 'contact.title')}>
+  <div class='max-w-3xl mx-auto px-6 py-16'>
+    <!-- Page Header -->
+    <header class='text-center mb-12'>
+      <h1
+        class='font-serif text-4xl md:text-5xl mb-4'
+        style='color: var(--text-primary);'
+      >
+        {t(locale, 'contact.title')}
+      </h1>
+      <p class='text-lg' style='color: var(--text-secondary);'>
+        ¿Interesado en una pintura o tienes alguna pregunta?
+      </p>
+    </header>
+
+    <!-- Direct Email -->
+    <div class='text-center mb-12'>
+      <p class='text-sm uppercase tracking-wider mb-2' style='color: var(--text-muted);'>
+        {t(locale, 'contact.emailLabel')}
+      </p>
+      <a
+        href='mailto:victorfuentesart@gmail.com'
+        class='text-xl font-medium hover:underline'
+        style='color: var(--accent-terracotta);'
+      >
+        victorfuentesart@gmail.com
+      </a>
+    </div>
+
+    <!-- Divider -->
+    <div class='flex items-center gap-4 mb-12'>
+      <div class='flex-1 h-px' style='background-color: var(--border-subtle);'></div>
+      <span class='text-sm' style='color: var(--text-muted);'>{t(locale, 'contact.orSendMessage')}</span>
+      <div class='flex-1 h-px' style='background-color: var(--border-subtle);'></div>
+    </div>
+
+    <!-- Contact Form -->
+    <ContactForm contactName='contact-inquiry' />
+  </div>
+</Layout>

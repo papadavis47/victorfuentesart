@@ -1,0 +1,57 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { t } from '@/i18n';
+
+const locale = 'es';
+---
+
+<Layout metaTitle={t(locale, 'submission.title')}>
+  <div class='max-w-xl mx-auto px-6 py-24 text-center'>
+    <!-- Success Icon -->
+    <div
+      class='w-16 h-16 mx-auto mb-8 rounded-full flex items-center justify-center'
+      style='background-color: var(--accent-olive); opacity: 0.9;'
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke-width='2'
+        stroke='white'
+        class='w-8 h-8'
+      >
+        <path stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5' />
+      </svg>
+    </div>
+
+    <!-- Message -->
+    <h1
+      class='font-serif text-3xl md:text-4xl mb-4'
+      style='color: var(--text-primary);'
+    >
+      {t(locale, 'submission.title')}
+    </h1>
+    <p class='text-lg mb-8' style='color: var(--text-secondary);'>
+      {t(locale, 'submission.message')}
+    </p>
+
+    <!-- Back Link -->
+    <a
+      href='/es'
+      class='inline-flex items-center gap-2 text-base font-medium hover:underline'
+      style='color: var(--accent-terracotta);'
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke-width='1.5'
+        stroke='currentColor'
+        class='w-4 h-4'
+      >
+        <path stroke-linecap='round' stroke-linejoin='round' d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18' />
+      </svg>
+      {t(locale, 'submission.returnHome')}
+    </a>
+  </div>
+</Layout>

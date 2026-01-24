@@ -1,5 +1,4 @@
 ---
-// Simple poem display - English only (i18n will handle translation later)
 export interface PoemLine {
   id: number;
   englishLine: string;
@@ -9,9 +8,10 @@ export interface PoemLine {
 type Props = {
   title: string;
   lines: PoemLine[];
+  showSpanish?: boolean;
 };
 
-const { title, lines } = Astro.props;
+const { title, lines, showSpanish = false } = Astro.props;
 ---
 
 <div>
@@ -22,15 +22,16 @@ const { title, lines } = Astro.props;
     {title}
   </h2>
   <div class='space-y-1'>
-    {lines.map((item) => (
-      item.englishLine && (
+    {lines.map((item) => {
+      const line = showSpanish ? item.spanishLine : item.englishLine;
+      return line && (
         <p
           class='text-base md:text-lg leading-relaxed'
           style='color: var(--text-secondary);'
         >
-          {item.englishLine}
+          {line}
         </p>
-      )
-    ))}
+      );
+    })}
   </div>
 </div>

@@ -1,6 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import mainPortrait from "@assets/images/main-portrait.webp";
+import { t, type Locale } from "@/i18n";
+
+type Props = {
+  locale?: Locale;
+};
+
+const { locale = "en" } = Astro.props;
 ---
 
 <section class="portrait-hero">
@@ -10,16 +17,16 @@ import mainPortrait from "@assets/images/main-portrait.webp";
         src={mainPortrait}
         alt="Victor Fuentes portrait"
         class="portrait-image"
-        width={420}
-        height={420}
+        width={320}
+        height={320}
       />
     </div>
     <div
       class="text-content animate-fade-in-up"
       style="animation-delay: 200ms;"
     >
-      <h1 class="artist-name">Victor Fuentes</h1>
-      <p class="subtitle">Nicaraguan Painter & Poet</p>
+      <h1 class="artist-name">{t(locale, "home.heroTitle")}</h1>
+      <p class="subtitle">{t(locale, "home.heroSubtitle")}</p>
     </div>
   </div>
 </section>

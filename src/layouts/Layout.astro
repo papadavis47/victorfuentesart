@@ -3,6 +3,8 @@ import Footer from '@components/astro/Footer.astro';
 import Navigation from '@components/react/Navigation.tsx';
 import { ViewTransitions } from 'astro:transitions';
 import { fade } from 'astro:transitions';
+import { getLocaleFromPathname } from '@/i18n/routing';
+import { t, type Locale } from '@/i18n';
 import '../styles/global.css';
 
 type Props = {
@@ -10,20 +12,43 @@ type Props = {
 };
 
 const { metaTitle } = Astro.props;
+const locale: Locale = getLocaleFromPathname(Astro.url.pathname);
+const description = t(locale, 'meta.description');
 ---
 
-<html lang='en'>
+<html lang={locale}>
   <head transition:animate={fade({ duration: '0.4s' })}>
     <meta charset='utf-8' />
     <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <meta name='description' content='Victor Fuentes - Nicaraguan painter and poet. Explore original oil paintings and poetry.' />
+    <meta name='description' content={description} />
     <meta name='generator' content={Astro.generator} />
     <title>{`${metaTitle} | Victor Fuentes Art`}</title>
     <ViewTransitions />
+    <script is:inline>
+      (function() {
+        const saved = localStorage.getItem('preferredLocale');
+        if (!saved) return;
+        const pathname = window.location.pathname;
+        const isSpanish = pathname.startsWith('/es/') || pathname === '/es';
+        const currentLocale = isSpanish ? 'es' : 'en';
+        if (saved !== currentLocale) {
+          let newPath;
+          if (saved === 'es') {
+            newPath = '/es' + (pathname === '/' ? '' : pathname);
+          } else {
+            newPath = pathname.replace(/^\/es(\/|$)/, '/');
+            if (newPath === '') newPath = '/';
+          }
+          if (newPath !== pathname) {
+            window.location.replace(newPath);
+          }
+        }
+      })();
+    </script>
   </head>
   <body class='min-h-screen flex flex-col' style='background-color: var(--bg-primary); color: var(--text-primary);'>
-    <Navigation client:load />
+    <Navigation locale={locale} client:load />
     <main class='flex-1'>
       <slot />
     </main>

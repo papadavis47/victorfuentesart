@@ -1,0 +1,104 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageHeader from "@components/astro/PageHeader.astro";
+import GalleryGrid from "@components/react/GalleryGrid";
+import { t } from '@/i18n';
+
+// Island paintings
+import isla from "@assets/images/isla.webp";
+import ometepe from "@assets/images/ometepe.webp";
+
+// Figurative
+import boy from "@assets/images/boy.webp";
+
+// Landscapes
+import housesVolcano from "@assets/images/houses-volcano.webp";
+import yellowSky from "@assets/images/yellow-sky.webp";
+
+// Still life
+import fruit from "@assets/images/fruit.webp";
+import cuadro from "@assets/images/Cuadro.webp";
+
+// Abstract
+import colorfulShapes from "@assets/images/colorful-shapes.webp";
+
+// Other works
+import oilOnCanvas from "@assets/images/oil-on-canvas.webp";
+import horses from "@assets/images/horses.webp";
+
+const locale = 'es';
+
+const paintings = [
+  {
+    src: isla.src,
+    alt: "Pintura de la Isla de Ometepe",
+    title: "Isla de Ometepe",
+  },
+  { src: ometepe.src, alt: "Vista del volcán Ometepe", title: "Ometepe" },
+  { src: boy.src, alt: "Niño cargando agua", title: "Niño Cargando Agua" },
+  {
+    src: housesVolcano.src,
+    alt: "Casas con volcán de fondo",
+    title: "Casas y Volcán",
+  },
+  { src: yellowSky.src, alt: "Casas bajo cielo amarillo", title: "Cielo Amarillo" },
+  { src: fruit.src, alt: "Naturaleza muerta con frutas", title: "Frutas" },
+  { src: cuadro.src, alt: "Composición de naturaleza muerta", title: "Cuadro" },
+  {
+    src: colorfulShapes.src,
+    alt: "Formas coloridas abstractas",
+    title: "Formas Coloridas",
+  },
+  {
+    src: oilOnCanvas.src,
+    alt: "Pintura al óleo sobre lienzo",
+    title: "Óleo sobre Lienzo",
+  },
+  { src: horses.src, alt: "Pintura de caballos", title: "Caballos" },
+];
+---
+
+<Layout metaTitle={t(locale, 'paintings.title')}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <PageHeader title={t(locale, 'paintings.title')} />
+    <p class="gallery-hint">
+      <svg
+        class="hint-icon"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+        <path d="M11 8v6"></path>
+        <path d="M8 11h6"></path>
+      </svg>
+      {t(locale, 'paintings.hint')}
+    </p>
+    <GalleryGrid paintings={paintings} client:load />
+  </div>
+</Layout>
+
+<style>
+  .gallery-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+
+  .hint-icon {
+    opacity: 0.7;
+  }
+</style>

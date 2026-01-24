@@ -7,7 +7,9 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"],
-      "@/types": ["src/types/index.ts"]
+      "@/types": ["src/types/index.ts"],
+      "@/i18n/*": ["src/i18n/*"],
+      "@/i18n": ["src/i18n/index.ts"]
     },
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
