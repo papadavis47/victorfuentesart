@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import mainPortrait from '@assets/images/main-portrait.webp';
+import { Image } from "astro:assets";
+import mainPortrait from "@assets/images/main-portrait.webp";
 ---
 
 <section class="portrait-hero">
@@ -10,13 +10,16 @@ import mainPortrait from '@assets/images/main-portrait.webp';
         src={mainPortrait}
         alt="Victor Fuentes portrait"
         class="portrait-image"
-        width={320}
-        height={320}
+        width={420}
+        height={420}
       />
     </div>
-    <div class="text-content animate-fade-in-up" style="animation-delay: 200ms;">
+    <div
+      class="text-content animate-fade-in-up"
+      style="animation-delay: 200ms;"
+    >
       <h1 class="artist-name">Victor Fuentes</h1>
-      <p class="subtitle">Painter · Poet · Nicaragua</p>
+      <p class="subtitle">Nicaraguan Painter & Poet</p>
     </div>
   </div>
 </section>
@@ -86,8 +89,8 @@ import mainPortrait from '@assets/images/main-portrait.webp';
     }
 
     .portrait-image {
-      width: 320px;
-      height: 320px;
+      width: 400px;
+      height: 400px;
     }
 
     .artist-name {

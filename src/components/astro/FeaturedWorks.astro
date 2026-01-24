@@ -1,15 +1,27 @@
 ---
-import { Image } from 'astro:assets';
-import housesVolcano from '@assets/images/houses-volcano.webp';
-import beso from '@assets/images/beso.webp';
-import fruit from '@assets/images/fruit.webp';
-import colorfulShapes from '@assets/images/colorful-shapes.webp';
+import { Image } from "astro:assets";
+import housesVolcano from "@assets/images/houses-volcano.webp";
+import oilCanvas from "@assets/images/oil-on-canvas.webp";
+import fruit from "@assets/images/fruit.webp";
+import colorfulShapes from "@assets/images/colorful-shapes.webp";
 
 const featuredPaintings = [
-  { src: housesVolcano, alt: 'Houses with volcano - landscape painting', title: 'Landscape' },
-  { src: beso, alt: 'Beso - figurative painting', title: 'Figurative' },
-  { src: fruit, alt: 'Fruit - still life painting', title: 'Still Life' },
-  { src: colorfulShapes, alt: 'Colorful shapes - abstract painting', title: 'Abstract' },
+  {
+    src: housesVolcano,
+    alt: "Houses with volcano - landscape painting",
+    title: "Landscape",
+  },
+  {
+    src: oilCanvas,
+    alt: "Pots from Nicaragua - figurative painting",
+    title: "Figurative",
+  },
+  { src: fruit, alt: "Fruit - still life painting", title: "Still Life" },
+  {
+    src: colorfulShapes,
+    alt: "Colorful shapes - abstract painting",
+    title: "Abstract",
+  },
 ];
 ---
 
@@ -17,20 +29,26 @@ const featuredPaintings = [
   <div class="container">
     <h2 class="section-title">Featured Works</h2>
     <div class="works-grid">
-      {featuredPaintings.map((painting, index) => (
-        <a href="/paintings" class="painting-card" style={`animation-delay: ${index * 100}ms;`}>
-          <div class="image-wrapper">
-            <Image
-              src={painting.src}
-              alt={painting.alt}
-              class="painting-image"
-              width={600}
-              height={450}
-            />
-          </div>
-          <span class="painting-label">{painting.title}</span>
-        </a>
-      ))}
+      {
+        featuredPaintings.map((painting, index) => (
+          <a
+            href="/paintings"
+            class="painting-card"
+            style={`animation-delay: ${index * 100}ms;`}
+          >
+            <div class="image-wrapper">
+              <Image
+                src={painting.src}
+                alt={painting.alt}
+                class="painting-image"
+                width={600}
+                height={450}
+              />
+            </div>
+            <span class="painting-label">{painting.title}</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -68,9 +86,11 @@ const featuredPaintings = [
     border-radius: 8px;
     background-color: var(--bg-card);
     box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    transition:
+      transform var(--transition-medium),
+      box-shadow var(--transition-medium);
     text-decoration: none;
-    animation: fadeInUp var(--transition-slow) ease forwards;
+    animation: fadeInUp 0.5s ease forwards;
     opacity: 0;
   }
 
