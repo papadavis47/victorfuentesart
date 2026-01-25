@@ -1,6 +1,7 @@
 ---
 import { t, type Locale } from "@/i18n";
 import { withLocale } from "@/i18n/routing";
+import bookCover from "@assets/images/book-cover.webp";
 
 type Props = {
   locale?: Locale;
@@ -13,13 +14,23 @@ const { locale = 'en' } = Astro.props;
   <div class="container">
     <h2 class="section-title">{t(locale, 'home.poetryTeaser')}</h2>
     <div class="poem-card">
-      <blockquote class="poem-excerpt">
-        <p class="poem-line">{t(locale, 'home.poetryPoemLine1')}</p>
-        <p class="poem-line">{t(locale, 'home.poetryPoemLine2')}</p>
-        <p class="poem-line">{t(locale, 'home.poetryPoemLine3')}</p>
-        <p class="poem-line">{t(locale, 'home.poetryPoemLine4')}</p>
-      </blockquote>
-      <p class="poem-attribution">— {t(locale, 'home.poetryFrom')} <em>Images of Love</em></p>
+      <div class="book-cover-wrapper">
+        <img 
+          src={bookCover.src} 
+          alt="Images of Love - Poetry book by Victor Fuentes"
+          class="book-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="poem-content">
+        <blockquote class="poem-excerpt">
+          <p class="poem-line">{t(locale, 'home.poetryPoemLine1')}</p>
+          <p class="poem-line">{t(locale, 'home.poetryPoemLine2')}</p>
+          <p class="poem-line">{t(locale, 'home.poetryPoemLine3')}</p>
+          <p class="poem-line">{t(locale, 'home.poetryPoemLine4')}</p>
+        </blockquote>
+        <p class="poem-attribution">— {t(locale, 'home.poetryFrom')} <em>Images of Love</em></p>
+      </div>
     </div>
     <p class="teaser-text">
       {t(locale, 'home.poetryDescription')}
@@ -43,7 +54,7 @@ const { locale = 'en' } = Astro.props;
   }
 
   .container {
-    max-width: 640px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
   }
@@ -58,10 +69,29 @@ const { locale = 'en' } = Astro.props;
 
   .poem-card {
     background-color: var(--bg-card);
-    padding: 2.5rem 2rem;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: var(--shadow-soft);
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .book-cover-wrapper {
+    flex-shrink: 0;
+  }
+
+  .book-cover {
+    width: 140px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .poem-content {
+    text-align: center;
   }
 
   .poem-excerpt {
@@ -72,7 +102,7 @@ const { locale = 'en' } = Astro.props;
 
   .poem-line {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-style: italic;
     color: var(--text-primary);
     margin: 0 0 0.5rem 0;
@@ -95,6 +125,9 @@ const { locale = 'en' } = Astro.props;
     font-size: 1rem;
     line-height: 1.7;
     margin: 0 0 2rem 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
   }
 
   .cta-wrapper {
@@ -127,6 +160,23 @@ const { locale = 'en' } = Astro.props;
     transform: translateX(4px);
   }
 
+  @media (min-width: 640px) {
+    .poem-card {
+      flex-direction: row;
+      align-items: center;
+      padding: 2.5rem;
+      text-align: left;
+    }
+
+    .book-cover {
+      width: 160px;
+    }
+
+    .poem-content {
+      text-align: left;
+    }
+  }
+
   @media (min-width: 768px) {
     .poetry-teaser {
       padding: 6rem 2rem;
@@ -138,11 +188,21 @@ const { locale = 'en' } = Astro.props;
     }
 
     .poem-card {
-      padding: 3rem 2.5rem;
+      padding: 3rem;
+      gap: 2.5rem;
+    }
+
+    .book-cover {
+      width: 180px;
     }
 
     .poem-line {
-      font-size: 1.375rem;
+      font-size: 1.25rem;
+    }
+
+    .teaser-text {
+      font-size: 1.125rem;
+      text-align: justify;
     }
   }
 </style>

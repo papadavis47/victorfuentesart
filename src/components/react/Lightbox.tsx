@@ -4,6 +4,7 @@ export interface LightboxImage {
   src: string;
   alt: string;
   title: string;
+  objectPosition?: string;
 }
 
 interface LightboxProps {
