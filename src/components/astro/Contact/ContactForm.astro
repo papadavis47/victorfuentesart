@@ -1,13 +1,14 @@
 ---
 type Props = {
   contactName: string;
+  redirectTo?: string;
 };
 
-const { contactName } = Astro.props;
+const { contactName, redirectTo = '/submission' } = Astro.props;
 ---
 
 <form
-  action='/submission'
+  action={redirectTo}
   method='POST'
   class='max-w-xl mx-auto'
   name={contactName}
