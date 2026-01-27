@@ -1,0 +1,55 @@
+---
+import type { Poem } from '@/data/poems';
+
+type Props = {
+  poem: Poem;
+  locale: 'en' | 'es';
+};
+
+const { poem, locale } = Astro.props;
+
+const title = locale === 'es' ? poem.titleEs : poem.titleEn;
+const content = locale === 'es' ? poem.contentEs : poem.contentEn;
+const linkBase = locale === 'es' ? '/es/poetry' : '/poetry';
+const readMoreText = locale === 'es' ? 'Leer más...' : 'Read more...';
+
+const previewLines = content.slice(0, 12);
+const hasMore = content.length > 12;
+---
+
+<a
+  href={`${linkBase}/${poem.id}`}
+  class='block rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-1'
+  style='background-color: var(--bg-card); border: 1px solid var(--border-subtle);'
+>
+  <article class='p-8 md:p-10'>
+    <h2
+      class='font-serif text-xl md:text-2xl mb-6 italic'
+      style='color: var(--text-primary);'
+    >
+      {title}
+    </h2>
+    <div class='space-y-1'>
+      {previewLines.map((line) => (
+        line === '' ? (
+          <div class='h-4' />
+        ) : (
+          <p
+            class='text-sm md:text-base leading-relaxed'
+            style='color: var(--text-secondary);'
+          >
+            {line}
+          </p>
+        )
+      ))}
+    </div>
+    {hasMore && (
+      <p
+        class='mt-6 text-sm font-medium italic'
+        style='color: var(--accent);'
+      >
+        {readMoreText}
+      </p>
+    )}
+  </article>
+</a>

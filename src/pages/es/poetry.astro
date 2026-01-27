@@ -1,20 +1,14 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import PoemContainer from '@components/astro/Poetry/PoemContainer.astro';
-import PoemDisplay from '@components/astro/Poetry/PoemDisplay.astro';
-import { poems } from '../../data/poems.ts';
+import PoemCard from '@components/astro/Poetry/PoemCard.astro';
+import { poems } from '@/data/poems';
 import { t } from '@/i18n';
 
 const locale = 'es';
-
-// Clean up the poem data - filter out empty lines and number markers
-const cleanedPoem = poems.imagenesDeAmor.filter(
-  (line) => line.spanishLine && !line.spanishLine.match(/^\d+$/)
-).slice(0, 10); // Take first 10 meaningful lines
 ---
 
 <Layout metaTitle={t(locale, 'poetry.title')}>
-  <div class='max-w-3xl mx-auto px-6 py-16'>
+  <div class='max-w-6xl mx-auto px-6 py-16'>
     <!-- Page Header -->
     <header class='text-center mb-16'>
       <h1
@@ -28,27 +22,11 @@ const cleanedPoem = poems.imagenesDeAmor.filter(
       </p>
     </header>
 
-    <!-- Poems -->
-    <section>
-      <PoemContainer>
-        <PoemDisplay title='Imágenes de Amor' lines={cleanedPoem} showSpanish={true} />
-      </PoemContainer>
-
-      <PoemContainer>
-        <PoemDisplay
-          title='El Sueño del Pintor'
-          showSpanish={true}
-          lines={[
-            { id: 1, spanishLine: 'En colores encuentro mi voz,', englishLine: '' },
-            { id: 2, spanishLine: 'cada pincelada una oración susurrada', englishLine: '' },
-            { id: 3, spanishLine: 'a las montañas de mi tierra.', englishLine: '' },
-            { id: 4, spanishLine: '', englishLine: '' },
-            { id: 5, spanishLine: 'El lienzo guarda mis recuerdos—', englishLine: '' },
-            { id: 6, spanishLine: 'atardeceres dorados sobre Ometepe,', englishLine: '' },
-            { id: 7, spanishLine: 'las calles tranquilas de León.', englishLine: '' },
-          ]}
-        />
-      </PoemContainer>
+    <!-- Poems Grid -->
+    <section class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+      {poems.map((poem) => (
+        <PoemCard poem={poem} locale='es' />
+      ))}
     </section>
   </div>
 </Layout>

@@ -1,0 +1,77 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { poems, getPoemById } from '@/data/poems';
+
+export function getStaticPaths() {
+  return poems.map((poem) => ({
+    params: { slug: poem.id },
+  }));
+}
+
+const { slug } = Astro.params;
+const poem = getPoemById(slug);
+
+if (!poem) {
+  return Astro.redirect('/es/poetry');
+}
+
+const title = poem.titleEs;
+const content = poem.contentEs;
+---
+
+<Layout metaTitle={title}>
+  <div class='max-w-3xl mx-auto px-6 py-16'>
+    <!-- Back Link -->
+    <nav class='mb-12'>
+      <a
+        href='/es/poetry'
+        class='inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-70'
+        style='color: var(--accent);'
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='16'
+          height='16'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        >
+          <path d='m15 18-6-6 6-6' />
+        </svg>
+        Volver a Poesía
+      </a>
+    </nav>
+
+    <!-- Poem -->
+    <article
+      class='rounded-lg shadow-sm overflow-hidden'
+      style='background-color: var(--bg-card); border: 1px solid var(--border-subtle);'
+    >
+      <div class='p-8 md:p-12'>
+        <h1
+          class='font-serif text-3xl md:text-4xl mb-8 italic'
+          style='color: var(--text-primary);'
+        >
+          {title}
+        </h1>
+        <div class='space-y-1'>
+          {content.map((line) => (
+            line === '' ? (
+              <div class='h-6' />
+            ) : (
+              <p
+                class='text-base md:text-lg leading-relaxed'
+                style='color: var(--text-secondary);'
+              >
+                {line}
+              </p>
+            )
+          ))}
+        </div>
+      </div>
+    </article>
+  </div>
+</Layout>

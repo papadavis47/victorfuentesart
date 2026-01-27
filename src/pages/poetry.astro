@@ -1,17 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import PoemContainer from '@components/astro/Poetry/PoemContainer.astro';
-import PoemDisplay from '@components/astro/Poetry/PoemDisplay.astro';
-import { poems } from '../data/poems.ts';
-
-// Clean up the poem data - filter out empty lines and number markers
-const cleanedPoem = poems.imagenesDeAmor.filter(
-  (line) => line.englishLine && !line.englishLine.match(/^\d+$/)
-).slice(0, 10); // Take first 10 meaningful lines
+import PoemCard from '@components/astro/Poetry/PoemCard.astro';
+import { poems } from '@/data/poems';
 ---
 
 <Layout metaTitle='Poetry'>
-  <div class='max-w-3xl mx-auto px-6 py-16'>
+  <div class='max-w-6xl mx-auto px-6 py-16'>
     <!-- Page Header -->
     <header class='text-center mb-16'>
       <h1
@@ -25,26 +19,11 @@ const cleanedPoem = poems.imagenesDeAmor.filter(
       </p>
     </header>
 
-    <!-- Poems -->
-    <section>
-      <PoemContainer>
-        <PoemDisplay title='Images of Love' lines={cleanedPoem} />
-      </PoemContainer>
-
-      <PoemContainer>
-        <PoemDisplay
-          title='The Painter's Dream'
-          lines={[
-            { id: 1, englishLine: 'In colors I find my voice,', spanishLine: '' },
-            { id: 2, englishLine: 'each brushstroke a whispered prayer', spanishLine: '' },
-            { id: 3, englishLine: 'to the mountains of my homeland.', spanishLine: '' },
-            { id: 4, englishLine: '', spanishLine: '' },
-            { id: 5, englishLine: 'The canvas holds my memories—', spanishLine: '' },
-            { id: 6, englishLine: 'golden sunsets over Ometepe,', spanishLine: '' },
-            { id: 7, englishLine: 'the quiet streets of León.', spanishLine: '' },
-          ]}
-        />
-      </PoemContainer>
+    <!-- Poems Grid -->
+    <section class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+      {poems.map((poem) => (
+        <PoemCard poem={poem} locale='en' />
+      ))}
     </section>
   </div>
 </Layout>
