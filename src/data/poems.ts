@@ -20,14 +20,14 @@ export const poems: Poem[] = [
   //     'and since I was a child',
   //     'I have wanted to see you',
   //   ],
-  //   contentEs: [
-  //     'No sé cómo imaginarte, mi amor...',
-  //     'tu nombre alguien lo inventó...',
-  //     'Desde entonces nadie ha podido',
-  //     'definir tu rostro',
-  //     'y yo desde niño',
-  //     'quise verte',
-  //   ],
+  // contentEs: [
+  //   'No sé cómo imaginarte, mi amor...',
+  //   'tu nombre alguien lo inventó...',
+  //   'Desde entonces nadie ha podido',
+  //   'definir tu rostro',
+  //   'y yo desde niño',
+  //   'quise verte',
+  // ],
   // },
   {
     id: "bubbles-of-love",

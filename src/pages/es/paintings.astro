@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import PageHeader from "@components/astro/PageHeader.astro";
 import GalleryGrid from "@components/react/GalleryGrid";
-import { t } from '@/i18n';
+import { t } from "@/i18n";
 
 // Island paintings
 import isla from "@assets/images/isla.webp";
@@ -28,7 +28,7 @@ import colorfulShapes from "@assets/images/colorful-shapes.webp";
 import oilOnCanvas from "@assets/images/oil-on-canvas.webp";
 import horses from "@assets/images/horses.webp";
 
-const locale = 'es';
+const locale = "es";
 
 const paintings = [
   {
@@ -37,15 +37,32 @@ const paintings = [
     title: "Isla de Ometepe",
   },
   { src: ometepe.src, alt: "Vista del volcán Ometepe", title: "Ometepe" },
-  { src: boy.src, alt: "Niño cargando agua", title: "Niño Cargando Agua", objectPosition: "top" },
-  { src: leon.src, alt: "Escena callejera de León con techos de teja", title: "León" },
-  { src: boyWithGourds.src, alt: "Niño con calabazas y mangos", title: "Niño con Calabazas" },
+  {
+    src: boy.src,
+    alt: "Niño cargando agua",
+    title: "Niño Cargando Agua",
+    objectPosition: "top",
+  },
+  {
+    src: leon.src,
+    alt: "Escena callejera de León con techos de teja",
+    title: "León",
+  },
+  {
+    src: boyWithGourds.src,
+    alt: "Niño con tinajas y mangos",
+    title: "Niño con Tinajas",
+  },
   {
     src: housesVolcano.src,
     alt: "Casas con volcán de fondo",
     title: "Casas y Volcán",
   },
-  { src: yellowSky.src, alt: "Casas bajo cielo amarillo", title: "Cielo Amarillo" },
+  {
+    src: yellowSky.src,
+    alt: "Casas bajo cielo amarillo",
+    title: "Cielo Amarillo",
+  },
   { src: fruit.src, alt: "Naturaleza muerta con frutas", title: "Frutas" },
   { src: cuadro.src, alt: "Composición de naturaleza muerta", title: "Cuadro" },
   {
@@ -62,9 +79,9 @@ const paintings = [
 ];
 ---
 
-<Layout metaTitle={t(locale, 'paintings.title')}>
+<Layout metaTitle={t(locale, "paintings.title")}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-    <PageHeader title={t(locale, 'paintings.title')} />
+    <PageHeader title={t(locale, "paintings.title")} />
     <p class="gallery-hint">
       <svg
         class="hint-icon"
@@ -82,7 +99,7 @@ const paintings = [
         <path d="M11 8v6"></path>
         <path d="M8 11h6"></path>
       </svg>
-      {t(locale, 'paintings.hint')}
+      {t(locale, "paintings.hint")}
     </p>
     <GalleryGrid paintings={paintings} client:load />
   </div>

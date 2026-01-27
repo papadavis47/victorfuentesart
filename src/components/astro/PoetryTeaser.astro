@@ -28,8 +28,10 @@ const { locale = 'en' } = Astro.props;
           <p class="poem-line">{t(locale, 'home.poetryPoemLine2')}</p>
           <p class="poem-line">{t(locale, 'home.poetryPoemLine3')}</p>
           <p class="poem-line">{t(locale, 'home.poetryPoemLine4')}</p>
+          <p class="poem-line">{t(locale, 'home.poetryPoemLine5')}</p>
+          <p class="poem-line">{t(locale, 'home.poetryPoemLine6')}</p>
         </blockquote>
-        <p class="poem-attribution">— {t(locale, 'home.poetryFrom')} <em>Images of Love</em></p>
+        <p class="poem-attribution">— {t(locale, 'home.poetryFrom')} <em>{t(locale, 'home.poetryPoemTitle')}</em></p>
       </div>
     </div>
     <p class="teaser-text">

@@ -19,7 +19,10 @@ export interface TranslationKeys {
     poetryPoemLine2: string;
     poetryPoemLine3: string;
     poetryPoemLine4: string;
+    poetryPoemLine5: string;
+    poetryPoemLine6: string;
     poetryFrom: string;
+    poetryPoemTitle: string;
     poetryDescription: string;
     readPoetry: string;
     landscape: string;
@@ -71,11 +74,14 @@ export const en: TranslationKeys = {
     aboutP3: 'Beyond the canvas, Victor expresses himself through poetry, weaving words in both Spanish and English to explore themes of love, memory, and the beauty found in everyday moments. His dual practice as painter and poet creates a unique artistic dialogue, each medium informing and enriching the other.',
     viewPaintings: 'View Paintings',
     poetryTeaser: 'Poetry',
-    poetryPoemLine1: 'In the quiet of morning light,',
-    poetryPoemLine2: 'colors speak what words cannot—',
-    poetryPoemLine3: 'a brushstroke holds the weight of years,',
-    poetryPoemLine4: 'memories painted, never forgot.',
+    poetryPoemLine1: 'I do not know how to imagine you, my love...',
+    poetryPoemLine2: 'your name someone once invented...',
+    poetryPoemLine3: 'Since then no one has been able',
+    poetryPoemLine4: 'to define your face',
+    poetryPoemLine5: 'and since I was a child',
+    poetryPoemLine6: 'I wanted to see you',
     poetryFrom: 'from',
+    poetryPoemTitle: 'Images of Love',
     poetryDescription: 'Explore Victor\'s bilingual poetry collection, featuring works in both English and Spanish that complement his visual art.',
     readPoetry: 'Read Poetry',
     landscape: 'Landscape',
