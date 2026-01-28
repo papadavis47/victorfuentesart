@@ -8,10 +8,9 @@ import '../styles/global.css';
 
 type Props = {
   metaTitle: string;
-  transitionType?: 'gallery-wall' | 'brush-wipe';
 };
 
-const { metaTitle, transitionType = 'gallery-wall' } = Astro.props;
+const { metaTitle } = Astro.props;
 const locale: Locale = getLocaleFromPathname(Astro.url.pathname);
 const description = t(locale, 'meta.description');
 ---
@@ -48,18 +47,10 @@ const description = t(locale, 'meta.description');
     </script>
   </head>
   <body class='min-h-screen flex flex-col' style='background-color: var(--bg-primary); color: var(--text-primary);'>
-    <div transition:name="nav-persist" transition:persist class="relative z-50">
-      <Navigation locale={locale} client:load />
-    </div>
-    <main 
-      class='flex-1'
-      transition:name={transitionType === 'brush-wipe' ? 'main-content' : undefined}
-      transition:animate="initial"
-    >
+    <Navigation locale={locale} client:load />
+    <main class='flex-1'>
       <slot />
     </main>
-    <div transition:name="footer-persist">
-      <Footer locale={locale} />
-    </div>
+    <Footer locale={locale} />
   </body>
 </html>
