@@ -37,6 +37,16 @@ export default function Navigation({ locale = 'en' }: NavigationProps) {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
+  // Close menu on Astro page transitions (for transition:persist)
+  useEffect(() => {
+    const handleBeforeSwap = () => {
+      setIsOpen(false);
+      document.body.style.overflow = '';
+    };
+    document.addEventListener('astro:before-swap', handleBeforeSwap);
+    return () => document.removeEventListener('astro:before-swap', handleBeforeSwap);
+  }, []);
+
   return (
     <nav
       className="sticky top-0 z-50"

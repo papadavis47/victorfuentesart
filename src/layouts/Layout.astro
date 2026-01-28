@@ -2,22 +2,22 @@
 import Footer from '@components/astro/Footer.astro';
 import Navigation from '@components/react/Navigation.tsx';
 import { ViewTransitions } from 'astro:transitions';
-import { fade } from 'astro:transitions';
 import { getLocaleFromPathname } from '@/i18n/routing';
 import { t, type Locale } from '@/i18n';
 import '../styles/global.css';
 
 type Props = {
   metaTitle: string;
+  transitionType?: 'gallery-wall' | 'brush-wipe';
 };
 
-const { metaTitle } = Astro.props;
+const { metaTitle, transitionType = 'gallery-wall' } = Astro.props;
 const locale: Locale = getLocaleFromPathname(Astro.url.pathname);
 const description = t(locale, 'meta.description');
 ---
 
 <html lang={locale}>
-  <head transition:animate={fade({ duration: '0.4s' })}>
+  <head>
     <meta charset='utf-8' />
     <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -48,10 +48,18 @@ const description = t(locale, 'meta.description');
     </script>
   </head>
   <body class='min-h-screen flex flex-col' style='background-color: var(--bg-primary); color: var(--text-primary);'>
-    <Navigation locale={locale} client:load />
-    <main class='flex-1'>
+    <div transition:name="nav-persist" transition:persist class="relative z-50">
+      <Navigation locale={locale} client:load />
+    </div>
+    <main 
+      class='flex-1'
+      transition:name={transitionType === 'brush-wipe' ? 'main-content' : undefined}
+      transition:animate="initial"
+    >
       <slot />
     </main>
-    <Footer locale={locale} />
+    <div transition:name="footer-persist">
+      <Footer locale={locale} />
+    </div>
   </body>
 </html>

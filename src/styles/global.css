@@ -168,3 +168,120 @@ a, button {
   background-color: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(4px);
 }
+
+/* ============================================
+   VIEW TRANSITIONS - Page Transition Effects
+   ============================================ */
+
+/* Option 3: Gallery Wall - Site-wide baseline
+   Gentle, smooth crossfade with subtle movement */
+@keyframes gallery-wall-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-6px) scale(0.995);
+    filter: blur(1px);
+  }
+}
+
+@keyframes gallery-wall-in {
+  0% {
+    opacity: 0;
+    transform: translateX(6px) scale(1.005);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Default transition - Gallery Wall effect */
+::view-transition-old(root) {
+  animation: gallery-wall-out 0.9s cubic-bezier(0.4, 0, 0.1, 1) forwards;
+}
+
+::view-transition-new(root) {
+  animation: gallery-wall-in 0.9s cubic-bezier(0.4, 0, 0.1, 1) forwards;
+}
+
+/* Option 2: Brush Stroke Wipe - For key routes (home ↔ gallery)
+   Soft fade with gentle horizontal reveal */
+@keyframes brush-wipe-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+}
+
+@keyframes brush-wipe-in {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Brush stroke transitions for main content */
+::view-transition-old(main-content) {
+  animation: brush-wipe-out 0.5s cubic-bezier(0.4, 0, 1, 1) forwards;
+  z-index: 1;
+}
+
+::view-transition-new(main-content) {
+  animation: brush-wipe-in 0.7s cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation-delay: 0.35s;
+  z-index: 2;
+}
+
+/* Navigation should stay stable during transitions */
+::view-transition-old(nav-persist),
+::view-transition-new(nav-persist) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Footer subtle fade */
+::view-transition-old(footer-persist) {
+  animation: fadeOut 0.6s cubic-bezier(0.4, 0, 0.1, 1) forwards;
+}
+
+::view-transition-new(footer-persist) {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.1, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Reduced motion - respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(main-content),
+  ::view-transition-new(main-content) {
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  ::view-transition-old(root),
+  ::view-transition-old(main-content) {
+    animation: fadeOut 0.3s ease forwards;
+  }
+}
