@@ -3,6 +3,14 @@ import Layout from "@layouts/Layout.astro";
 import PageHeader from "@components/astro/PageHeader.astro";
 import GalleryGrid from "@components/react/GalleryGrid";
 
+// Recent paintings
+import danceInTheSnow from "@assets/images/recent-paintings/dance-in-the-snow.webp";
+import fruitVendors from "@assets/images/recent-paintings/fruit-vendors.webp";
+import landscapeII from "@assets/images/recent-paintings/landscape-II.webp";
+import landscapeIV from "@assets/images/recent-paintings/landscape-IV.webp";
+import landscape from "@assets/images/recent-paintings/landscape.webp";
+import marketVendor from "@assets/images/recent-paintings/market-vendor.webp";
+
 // Island paintings
 import isla from "@assets/images/isla.webp";
 import ometepe from "@assets/images/ometepe.webp";
@@ -28,6 +36,12 @@ import oilOnCanvas from "@assets/images/oil-on-canvas.webp";
 import horses from "@assets/images/horses.webp";
 
 const paintings = [
+  { src: danceInTheSnow.src, alt: "Dance in the snow", title: "Dance in the Snow" },
+  { src: fruitVendors.src, alt: "Fruit vendors at market", title: "Fruit Vendors", objectPosition: "top" },
+  { src: landscape.src, alt: "Landscape painting", title: "Landscape" },
+  { src: landscapeII.src, alt: "Landscape painting II", title: "Landscape II" },
+  { src: landscapeIV.src, alt: "Landscape painting IV", title: "Landscape IV" },
+  { src: marketVendor.src, alt: "Market vendor", title: "Market Vendor", objectPosition: "top" },
   {
     src: isla.src,
     alt: "Island of Ometepe painting",

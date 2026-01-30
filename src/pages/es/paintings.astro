@@ -4,6 +4,14 @@ import PageHeader from "@components/astro/PageHeader.astro";
 import GalleryGrid from "@components/react/GalleryGrid";
 import { t } from "@/i18n";
 
+// Recent paintings
+import danceInTheSnow from "@assets/images/recent-paintings/dance-in-the-snow.webp";
+import fruitVendors from "@assets/images/recent-paintings/fruit-vendors.webp";
+import landscapeII from "@assets/images/recent-paintings/landscape-II.webp";
+import landscapeIV from "@assets/images/recent-paintings/landscape-IV.webp";
+import landscape from "@assets/images/recent-paintings/landscape.webp";
+import marketVendor from "@assets/images/recent-paintings/market-vendor.webp";
+
 // Island paintings
 import isla from "@assets/images/isla.webp";
 import ometepe from "@assets/images/ometepe.webp";
@@ -31,6 +39,12 @@ import horses from "@assets/images/horses.webp";
 const locale = "es";
 
 const paintings = [
+  { src: danceInTheSnow.src, alt: "Baile en la nieve", title: "Baile en la Nieve" },
+  { src: fruitVendors.src, alt: "Vendedoras de frutas en el mercado", title: "Vendedoras de Frutas", objectPosition: "top" },
+  { src: landscape.src, alt: "Pintura de paisaje", title: "Paisaje" },
+  { src: landscapeII.src, alt: "Pintura de paisaje II", title: "Paisaje II" },
+  { src: landscapeIV.src, alt: "Pintura de paisaje IV", title: "Paisaje IV" },
+  { src: marketVendor.src, alt: "Vendedora del mercado", title: "Vendedora del Mercado", objectPosition: "top" },
   {
     src: isla.src,
     alt: "Pintura de la Isla de Ometepe",
