@@ -1,0 +1,122 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { t } from '@/i18n';
+import victorReading from '@assets/images/victor-reading.webp';
+import beso from '@assets/images/beso.webp';
+
+const locale = 'en';
+---
+
+<Layout metaTitle={t(locale, 'biography.title')}>
+  <div class="biography-page">
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1>{t(locale, 'biography.title')}</h1>
+    </header>
+
+    <!-- Hero Image -->
+    <div class="hero-image">
+      <Image src={victorReading} alt="Victor Fuentes" />
+    </div>
+
+    <!-- Bio Text -->
+    <div class="bio-content">
+      <p>{t(locale, 'biography.p1')}</p>
+      <p>{t(locale, 'biography.p2')}</p>
+      <p>{t(locale, 'biography.p3')}</p>
+
+      <!-- Closing Paragraph -->
+      <div class="closing">
+        <p>{t(locale, 'biography.p4line1')}</p>
+        <p>{t(locale, 'biography.p4line2')}</p>
+        <p>{t(locale, 'biography.p4line3')}</p>
+      </div>
+    </div>
+
+    <!-- Bottom Image -->
+    <div class="bottom-image">
+      <Image src={beso} alt="Beso — painting by Victor Fuentes" />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .biography-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .hero-image {
+    margin-bottom: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .bio-content {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .bio-content > p {
+    margin: 0 0 1.5rem 0;
+  }
+
+  .closing {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  .closing p {
+    margin: 0 0 0.25rem 0;
+  }
+
+  .bottom-image {
+    margin-top: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .bottom-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .biography-page {
+      padding: 5rem 2rem 6rem;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+    }
+
+    .bio-content {
+      font-size: 1.125rem;
+    }
+  }
+</style>

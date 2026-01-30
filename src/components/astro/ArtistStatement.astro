@@ -14,8 +14,6 @@ const { locale = 'en' } = Astro.props;
     <h2 class="section-title">{t(locale, 'home.aboutTitle')}</h2>
     <div class="bio-content">
       <p>{t(locale, 'home.aboutP1')}</p>
-      <p>{t(locale, 'home.aboutP2')}</p>
-      <p>{t(locale, 'home.aboutP3')}</p>
     </div>
     <div class="cta-wrapper">
       <a href={withLocale('/paintings', locale)} class="cta-button">{t(locale, 'home.viewPaintings')}</a>

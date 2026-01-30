@@ -2,7 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import PortraitHero from '@components/astro/PortraitHero.astro';
 import FeaturedWorks from '@components/astro/FeaturedWorks.astro';
-import BioSection from '@components/astro/BioSection.astro';
+import ArtistStatement from '@components/astro/ArtistStatement.astro';
 import PoetryTeaser from '@components/astro/PoetryTeaser.astro';
 import { t } from '@/i18n';
 
@@ -12,6 +12,6 @@ const locale = 'es';
 <Layout metaTitle={t(locale, 'nav.home')}>
   <PortraitHero locale={locale} />
   <FeaturedWorks locale={locale} />
-  <BioSection locale={locale} />
+  <ArtistStatement locale={locale} />
   <PoetryTeaser locale={locale} />
 </Layout>

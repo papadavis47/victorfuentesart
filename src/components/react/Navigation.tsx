@@ -12,6 +12,7 @@ export default function Navigation({ locale = 'en' }: NavigationProps) {
   const navLinks = [
     { href: '/paintings', label: t(locale, 'nav.paintings') },
     { href: '/poetry', label: t(locale, 'nav.poetry') },
+    { href: '/biography', label: t(locale, 'nav.biography') },
     { href: '/contact', label: t(locale, 'nav.contact') },
   ];
   const [isOpen, setIsOpen] = useState(false);
