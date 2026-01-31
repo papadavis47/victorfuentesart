@@ -47,7 +47,7 @@ const description = t(locale, 'meta.description');
     </script>
   </head>
   <body class='min-h-screen flex flex-col' style='background-color: var(--bg-primary); color: var(--text-primary);'>
-    <Navigation locale={locale} client:load />
+    <Navigation locale={locale} currentPath={Astro.url.pathname} client:load />
     <main class='flex-1'>
       <slot />
     </main>

@@ -6,15 +6,22 @@ import { t, type Locale } from '../../i18n';
 
 interface NavigationProps {
   locale?: Locale;
+  currentPath?: string;
 }
 
-export default function Navigation({ locale = 'en' }: NavigationProps) {
-  const navLinks = [
+export default function Navigation({ locale = 'en', currentPath = '/' }: NavigationProps) {
+  // Strip locale prefix and trailing slash to get the bare route
+  const normalizedPath = currentPath.replace(/^\/es(\/|$)/, '/').replace(/\/$/, '') || '/';
+
+  const allNavLinks = [
     { href: '/paintings', label: t(locale, 'nav.paintings') },
     { href: '/poetry', label: t(locale, 'nav.poetry') },
     { href: '/biography', label: t(locale, 'nav.biography') },
     { href: '/contact', label: t(locale, 'nav.contact') },
   ];
+
+  const navLinks = allNavLinks.filter((link) => link.href !== normalizedPath);
+  const isHome = normalizedPath === '/';
   const [isOpen, setIsOpen] = useState(false);
 
   // Prevent body scroll when mobile menu is open
@@ -139,18 +146,20 @@ export default function Navigation({ locale = 'en' }: NavigationProps) {
 
         {/* Mobile Links */}
         <nav className="px-6 py-4">
-          <a
-            href={withLocale('/', locale)}
-            className="block py-3 text-lg font-medium transition-colors duration-200"
-            style={{
-              color: 'var(--text-primary)',
-              fontFamily: 'var(--font-serif)',
-              borderBottom: '1px solid var(--border-subtle)',
-            }}
-            onClick={() => setIsOpen(false)}
-          >
-            {t(locale, 'nav.home')}
-          </a>
+          {!isHome && (
+            <a
+              href={withLocale('/', locale)}
+              className="block py-3 text-lg font-medium transition-colors duration-200"
+              style={{
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-serif)',
+                borderBottom: '1px solid var(--border-subtle)',
+              }}
+              onClick={() => setIsOpen(false)}
+            >
+              {t(locale, 'nav.home')}
+            </a>
+          )}
           {navLinks.map((link) => (
             <a
               key={link.href}
