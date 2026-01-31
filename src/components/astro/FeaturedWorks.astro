@@ -51,6 +51,8 @@ const featuredPaintings = [
                 class="painting-image"
                 width={600}
                 height={450}
+                loading={index < 2 ? "eager" : "lazy"}
+                fetchpriority={index < 2 ? "high" : "auto"}
               />
             </div>
             <span class="painting-label">{t(locale, painting.titleKey)}</span>

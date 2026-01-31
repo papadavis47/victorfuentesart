@@ -39,7 +39,11 @@ export default function GalleryGrid({ paintings }: GalleryGridProps) {
             <div className="gallery-image relative aspect-4/3 overflow-hidden rounded-lg">
               <img
                 src={painting.src}
+                srcSet={painting.srcSet}
+                sizes={painting.sizes}
                 alt={painting.alt}
+                width={painting.width}
+                height={painting.height}
                 className="w-full h-full object-cover"
                 style={painting.objectPosition ? { objectPosition: painting.objectPosition } : undefined}
                 loading="lazy"

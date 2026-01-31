@@ -2,8 +2,12 @@ import { useEffect, useCallback } from 'react';
 
 export interface LightboxImage {
   src: string;
+  srcSet?: string;
+  sizes?: string;
   alt: string;
   title: string;
+  width?: number;
+  height?: number;
   objectPosition?: string;
 }
 
@@ -50,6 +54,18 @@ export default function Lightbox({
       document.body.style.overflow = '';
     };
   }, [handleKeyDown]);
+
+  // Preload adjacent images for instant navigation
+  useEffect(() => {
+    const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+
+    const prevImg = new Image();
+    prevImg.src = images[prevIndex].src;
+
+    const nextImg = new Image();
+    nextImg.src = images[nextIndex].src;
+  }, [currentIndex, images]);
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {

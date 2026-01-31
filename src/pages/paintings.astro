@@ -2,6 +2,8 @@
 import Layout from "@layouts/Layout.astro";
 import PageHeader from "@components/astro/PageHeader.astro";
 import GalleryGrid from "@components/react/GalleryGrid";
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 // Recent paintings
 import danceInTheSnow from "@assets/images/recent-paintings/dance-in-the-snow.webp";
@@ -38,45 +40,58 @@ import village from "@assets/images/paintings/village.webp";
 import flores from "@assets/images/recent-paintings/flores.webp";
 import floresII from "@assets/images/recent-paintings/flores-II.webp";
 
-const paintings = [
-  { src: danceInTheSnow.src, alt: "Dance in the snow", title: "Dance in the Snow" },
-  { src: fruitVendors.src, alt: "Fruit vendors at market", title: "Fruit Vendors", objectPosition: "top" },
-  { src: landscape.src, alt: "Landscape painting", title: "Landscape" },
-  { src: landscapeII.src, alt: "Landscape painting II", title: "Landscape II" },
-  { src: landscapeIV.src, alt: "Landscape painting IV", title: "Landscape IV" },
-  { src: marketVendor.src, alt: "Market vendor", title: "Market Vendor", objectPosition: "top" },
-  {
-    src: isla.src,
-    alt: "Island of Ometepe painting",
-    title: "Isla de Ometepe",
-  },
-  { src: ometepe.src, alt: "View of Ometepe volcano", title: "Ometepe" },
-  { src: boy.src, alt: "Boy carrying water", title: "Boy Carrying Water", objectPosition: "top" },
-  { src: leon.src, alt: "León street scene with tile roofs", title: "León" },
-  { src: boyWithGourds.src, alt: "Boy with gourds and mangoes", title: "Boy with Gourds" },
-  {
-    src: housesVolcano.src,
-    alt: "Houses with volcano backdrop",
-    title: "Houses and Volcano",
-  },
-  { src: yellowSky.src, alt: "Houses under yellow sky", title: "Yellow Sky" },
-  { src: fruit.src, alt: "Still life with fruit", title: "Fruit" },
-  { src: cuadro.src, alt: "Still life composition", title: "Cuadro" },
-  {
-    src: colorfulShapes.src,
-    alt: "Abstract colorful shapes",
-    title: "Colorful Shapes",
-  },
-  {
-    src: oilOnCanvas.src,
-    alt: "Oil painting on canvas",
-    title: "Oil on Canvas",
-  },
-  { src: horses.src, alt: "Horses painting", title: "Horses" },
-  { src: village.src, alt: "Village with tile-roofed houses", title: "Village" },
-  { src: flores.src, alt: "Colorful flowers on black background", title: "Flowers" },
-  { src: floresII.src, alt: "Flowers in a vase", title: "Flowers II" },
-];
+const SIZES = "(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw";
+
+async function processPainting(
+  img: ImageMetadata,
+  alt: string,
+  title: string,
+  objectPosition?: string,
+) {
+  const targetWidths = [400, 800].filter((w) => w < img.width);
+  const variants = await Promise.all(
+    targetWidths.map(async (w) => {
+      const result = await getImage({ src: img, width: w });
+      return `${result.src} ${w}w`;
+    }),
+  );
+  variants.push(`${img.src} ${img.width}w`);
+
+  return {
+    src: img.src,
+    srcSet: variants.join(", "),
+    sizes: SIZES,
+    alt,
+    title,
+    width: img.width,
+    height: img.height,
+    ...(objectPosition && { objectPosition }),
+  };
+}
+
+const paintings = await Promise.all([
+  processPainting(danceInTheSnow, "Dance in the snow", "Dance in the Snow"),
+  processPainting(fruitVendors, "Fruit vendors at market", "Fruit Vendors", "top"),
+  processPainting(landscape, "Landscape painting", "Landscape"),
+  processPainting(landscapeII, "Landscape painting II", "Landscape II"),
+  processPainting(landscapeIV, "Landscape painting IV", "Landscape IV"),
+  processPainting(marketVendor, "Market vendor", "Market Vendor", "top"),
+  processPainting(isla, "Island of Ometepe painting", "Isla de Ometepe"),
+  processPainting(ometepe, "View of Ometepe volcano", "Ometepe"),
+  processPainting(boy, "Boy carrying water", "Boy Carrying Water", "top"),
+  processPainting(leon, "León street scene with tile roofs", "León"),
+  processPainting(boyWithGourds, "Boy with gourds and mangoes", "Boy with Gourds"),
+  processPainting(housesVolcano, "Houses with volcano backdrop", "Houses and Volcano"),
+  processPainting(yellowSky, "Houses under yellow sky", "Yellow Sky"),
+  processPainting(fruit, "Still life with fruit", "Fruit"),
+  processPainting(cuadro, "Still life composition", "Cuadro"),
+  processPainting(colorfulShapes, "Abstract colorful shapes", "Colorful Shapes"),
+  processPainting(oilOnCanvas, "Oil painting on canvas", "Oil on Canvas"),
+  processPainting(horses, "Horses painting", "Horses"),
+  processPainting(village, "Village with tile-roofed houses", "Village"),
+  processPainting(flores, "Colorful flowers on black background", "Flowers"),
+  processPainting(floresII, "Flowers in a vase", "Flowers II"),
+]);
 ---
 
 <Layout metaTitle="Paintings">
