@@ -1,22 +1,29 @@
 ---
-import { t } from '@/i18n';
+import { t } from "@/i18n";
 
 interface Props {
-  locale?: 'en' | 'es';
+  locale?: "en" | "es";
 }
 
-const { locale = 'en' } = Astro.props;
+const { locale = "en" } = Astro.props;
 ---
 
-<footer class='mt-auto py-8 border-t' style='border-color: var(--border-subtle);'>
-  <div class='max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4'>
-    <p class='text-sm md:text-base' style='color: var(--text-primary);'>
-      &copy; {new Date().getFullYear()} Victor Fuentes. {t(locale, 'footer.rights')}.
+<footer
+  class="mt-auto py-8 border-t"
+  style="border-color: var(--border-subtle);"
+>
+  <div
+    class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4"
+  >
+    <p class="text-sm md:text-base" style="color: var(--text-secondary);">
+      &copy; {new Date().getFullYear()} Victor Fuentes. {
+        t(locale, "footer.rights")
+      }.
     </p>
     <a
-      href='mailto:victorfuentesart@gmail.com'
-      class='text-sm md:text-base hover:underline'
-      style='color: var(--text-primary);'
+      href="mailto:victorfuentesart@gmail.com"
+      class="text-sm md:text-base hover:underline"
+      style="color: var(--accent-terracotta);"
     >
       victorfuentesart@gmail.com
     </a>
